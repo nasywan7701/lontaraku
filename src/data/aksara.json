@@ -1,0 +1,269 @@
+[
+  {
+    "id": "ka",
+    "baseSymbol": "ᨀ",
+    "baseLatin": "KA",
+    "group": "Velar",
+    "row": 1,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨀ", "latin": "Ka", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ka.mp3" },
+      "i": { "type": "i", "symbol": "ᨀᨗ", "latin": "Ki", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ki.mp3" },
+      "u": { "type": "u", "symbol": "ᨀᨘ", "latin": "Ku", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/ku.mp3" },
+      "e": { "type": "e", "symbol": "ᨀᨙ", "latin": "Ke", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/ke.mp3" },
+      "o": { "type": "o", "symbol": "ᨀᨚ", "latin": "Ko", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/ko.mp3" }
+    }
+  },
+  {
+    "id": "ga",
+    "baseSymbol": "ᨁ",
+    "baseLatin": "GA",
+    "group": "Velar",
+    "row": 1,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨁ", "latin": "Ga", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ga.mp3" },
+      "i": { "type": "i", "symbol": "ᨁᨗ", "latin": "Gi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/gi.mp3" },
+      "u": { "type": "u", "symbol": "ᨁᨘ", "latin": "Gu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/gu.mp3" },
+      "e": { "type": "e", "symbol": "ᨁᨙ", "latin": "Ge", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/ge.mp3" },
+      "o": { "type": "o", "symbol": "ᨁᨚ", "latin": "Go", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/go.mp3" }
+    }
+  },
+  {
+    "id": "nga",
+    "baseSymbol": "ᨂ",
+    "baseLatin": "NGA",
+    "group": "Velar",
+    "row": 1,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨂ", "latin": "Nga", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/nga.mp3" },
+      "i": { "type": "i", "symbol": "ᨂᨗ", "latin": "Ngi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ngi.mp3" },
+      "u": { "type": "u", "symbol": "ᨂᨘ", "latin": "Ngu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/ngu.mp3" },
+      "e": { "type": "e", "symbol": "ᨂᨙ", "latin": "Nge", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/nge.mp3" },
+      "o": { "type": "o", "symbol": "ᨂᨚ", "latin": "Ngo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/ngo.mp3" }
+    }
+  },
+  {
+    "id": "pa",
+    "baseSymbol": "ᨄ",
+    "baseLatin": "PA",
+    "group": "Labial",
+    "row": 2,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨄ", "latin": "Pa", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/pa.mp3" },
+      "i": { "type": "i", "symbol": "ᨄᨗ", "latin": "Pi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/pi.mp3" },
+      "u": { "type": "u", "symbol": "ᨄᨘ", "latin": "Pu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/pu.mp3" },
+      "e": { "type": "e", "symbol": "ᨄᨙ", "latin": "Pe", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/pe.mp3" },
+      "o": { "type": "o", "symbol": "ᨄᨚ", "latin": "Po", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/po.mp3" }
+    }
+  },
+  {
+    "id": "ba",
+    "baseSymbol": "ᨅ",
+    "baseLatin": "BA",
+    "group": "Labial",
+    "row": 2,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨅ", "latin": "Ba", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ba.mp3" },
+      "i": { "type": "i", "symbol": "ᨅᨗ", "latin": "Bi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/bi.mp3" },
+      "u": { "type": "u", "symbol": "ᨅᨘ", "latin": "Bu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/bu.mp3" },
+      "e": { "type": "e", "symbol": "ᨅᨙ", "latin": "Be", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/be.mp3" },
+      "o": { "type": "o", "symbol": "ᨅᨚ", "latin": "Bo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/bo.mp3" }
+    }
+  },
+  {
+    "id": "ma",
+    "baseSymbol": "ᨆ",
+    "baseLatin": "MA",
+    "group": "Labial",
+    "row": 2,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨆ", "latin": "Ma", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ma.mp3" },
+      "i": { "type": "i", "symbol": "ᨆᨗ", "latin": "Mi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/mi.mp3" },
+      "u": { "type": "u", "symbol": "ᨆᨘ", "latin": "Mu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/mu.mp3" },
+      "e": { "type": "e", "symbol": "ᨆᨙ", "latin": "Me", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/me.mp3" },
+      "o": { "type": "o", "symbol": "ᨆᨚ", "latin": "Mo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/mo.mp3" }
+    }
+  },
+  {
+    "id": "ta",
+    "baseSymbol": "ᨈ",
+    "baseLatin": "TA",
+    "group": "Dental",
+    "row": 3,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨈ", "latin": "Ta", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ta.mp3" },
+      "i": { "type": "i", "symbol": "ᨈᨗ", "latin": "Ti", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ti.mp3" },
+      "u": { "type": "u", "symbol": "ᨈᨘ", "latin": "Tu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/tu.mp3" },
+      "e": { "type": "e", "symbol": "ᨈᨙ", "latin": "Te", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/te.mp3" },
+      "o": { "type": "o", "symbol": "ᨈᨚ", "latin": "To", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/to.mp3" }
+    }
+  },
+  {
+    "id": "da",
+    "baseSymbol": "ᨉ",
+    "baseLatin": "DA",
+    "group": "Dental",
+    "row": 3,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨉ", "latin": "Da", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/da.mp3" },
+      "i": { "type": "i", "symbol": "ᨉᨗ", "latin": "Di", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/di.mp3" },
+      "u": { "type": "u", "symbol": "ᨉᨘ", "latin": "Du", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/du.mp3" },
+      "e": { "type": "e", "symbol": "ᨉᨙ", "latin": "De", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/de.mp3" },
+      "o": { "type": "o", "symbol": "ᨉᨚ", "latin": "Do", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/do.mp3" }
+    }
+  },
+  {
+    "id": "na",
+    "baseSymbol": "ᨊ",
+    "baseLatin": "NA",
+    "group": "Dental",
+    "row": 3,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨊ", "latin": "Na", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/na.mp3" },
+      "i": { "type": "i", "symbol": "ᨊᨗ", "latin": "Ni", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ni.mp3" },
+      "u": { "type": "u", "symbol": "ᨊᨘ", "latin": "Nu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/nu.mp3" },
+      "e": { "type": "e", "symbol": "ᨊᨙ", "latin": "Ne", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/ne.mp3" },
+      "o": { "type": "o", "symbol": "ᨊᨚ", "latin": "No", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/no.mp3" }
+    }
+  },
+  {
+    "id": "ca",
+    "baseSymbol": "ᨌ",
+    "baseLatin": "CA",
+    "group": "Palatal",
+    "row": 4,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨌ", "latin": "Ca", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ca.mp3" },
+      "i": { "type": "i", "symbol": "ᨌᨗ", "latin": "Ci", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ci.mp3" },
+      "u": { "type": "u", "symbol": "ᨌᨘ", "latin": "Cu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/cu.mp3" },
+      "e": { "type": "e", "symbol": "ᨌᨙ", "latin": "Ce", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/ce.mp3" },
+      "o": { "type": "o", "symbol": "ᨌᨚ", "latin": "Co", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/co.mp3" }
+    }
+  },
+  {
+    "id": "ja",
+    "baseSymbol": "ᨍ",
+    "baseLatin": "JA",
+    "group": "Palatal",
+    "row": 4,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨍ", "latin": "Ja", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ja.mp3" },
+      "i": { "type": "i", "symbol": "ᨍᨗ", "latin": "Ji", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ji.mp3" },
+      "u": { "type": "u", "symbol": "ᨍᨘ", "latin": "Ju", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/ju.mp3" },
+      "e": { "type": "e", "symbol": "ᨍᨙ", "latin": "Je", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/je.mp3" },
+      "o": { "type": "o", "symbol": "ᨍᨚ", "latin": "Jo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/jo.mp3" }
+    }
+  },
+  {
+    "id": "nya",
+    "baseSymbol": "ᨎ",
+    "baseLatin": "NYA",
+    "group": "Palatal",
+    "row": 4,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨎ", "latin": "Nya", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/nya.mp3" },
+      "i": { "type": "i", "symbol": "ᨎᨗ", "latin": "Nyi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/nyi.mp3" },
+      "u": { "type": "u", "symbol": "ᨎᨘ", "latin": "Nyu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/nyu.mp3" },
+      "e": { "type": "e", "symbol": "ᨎᨙ", "latin": "Nye", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/nye.mp3" },
+      "o": { "type": "o", "symbol": "ᨎᨚ", "latin": "Nyo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/nyo.mp3" }
+    }
+  },
+  {
+    "id": "ya",
+    "baseSymbol": "ᨐ",
+    "baseLatin": "YA",
+    "group": "Approximant",
+    "row": 5,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨐ", "latin": "Ya", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ya.mp3" },
+      "i": { "type": "i", "symbol": "ᨐᨗ", "latin": "Yi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/yi.mp3" },
+      "u": { "type": "u", "symbol": "ᨐᨘ", "latin": "Yu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/yu.mp3" },
+      "e": { "type": "e", "symbol": "ᨐᨙ", "latin": "Ye", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/ye.mp3" },
+      "o": { "type": "o", "symbol": "ᨐᨚ", "latin": "Yo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/yo.mp3" }
+    }
+  },
+  {
+    "id": "ra",
+    "baseSymbol": "ᨑ",
+    "baseLatin": "RA",
+    "group": "Approximant",
+    "row": 5,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨑ", "latin": "Ra", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ra.mp3" },
+      "i": { "type": "i", "symbol": "ᨑᨗ", "latin": "Ri", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/ri.mp3" },
+      "u": { "type": "u", "symbol": "ᨑᨘ", "latin": "Ru", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/ru.mp3" },
+      "e": { "type": "e", "symbol": "ᨑᨙ", "latin": "Re", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/re.mp3" },
+      "o": { "type": "o", "symbol": "ᨑᨚ", "latin": "Ro", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/ro.mp3" }
+    }
+  },
+  {
+    "id": "la",
+    "baseSymbol": "ᨒ",
+    "baseLatin": "LA",
+    "group": "Approximant",
+    "row": 5,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨒ", "latin": "La", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/la.mp3" },
+      "i": { "type": "i", "symbol": "ᨒᨗ", "latin": "Li", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/li.mp3" },
+      "u": { "type": "u", "symbol": "ᨒᨘ", "latin": "Lu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/lu.mp3" },
+      "e": { "type": "e", "symbol": "ᨒᨙ", "latin": "Le", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/le.mp3" },
+      "o": { "type": "o", "symbol": "ᨒᨚ", "latin": "Lo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/lo.mp3" }
+    }
+  },
+  {
+    "id": "wa",
+    "baseSymbol": "ᨓ",
+    "baseLatin": "WA",
+    "group": "Fricative & Glottal",
+    "row": 6,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨓ", "latin": "Wa", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/wa.mp3" },
+      "i": { "type": "i", "symbol": "ᨓᨗ", "latin": "Wi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/wi.mp3" },
+      "u": { "type": "u", "symbol": "ᨓᨘ", "latin": "Wu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/wu.mp3" },
+      "e": { "type": "e", "symbol": "ᨓᨙ", "latin": "We", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/we.mp3" },
+      "o": { "type": "o", "symbol": "ᨓᨚ", "latin": "Wo", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/wo.mp3" }
+    }
+  },
+  {
+    "id": "sa",
+    "baseSymbol": "ᨔ",
+    "baseLatin": "SA",
+    "group": "Fricative & Glottal",
+    "row": 6,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨔ", "latin": "Sa", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/sa.mp3" },
+      "i": { "type": "i", "symbol": "ᨔᨗ", "latin": "Si", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/si.mp3" },
+      "u": { "type": "u", "symbol": "ᨔᨘ", "latin": "Su", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/su.mp3" },
+      "e": { "type": "e", "symbol": "ᨔᨙ", "latin": "Se", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/se.mp3" },
+      "o": { "type": "o", "symbol": "ᨔᨚ", "latin": "So", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/so.mp3" }
+    }
+  },
+  {
+    "id": "a",
+    "baseSymbol": "ᨕ",
+    "baseLatin": "A",
+    "group": "Fricative & Glottal",
+    "row": 6,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨕ", "latin": "A", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/a.mp3" },
+      "i": { "type": "i", "symbol": "ᨕᨗ", "latin": "I", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/i.mp3" },
+      "u": { "type": "u", "symbol": "ᨕᨘ", "latin": "U", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/u.mp3" },
+      "e": { "type": "e", "symbol": "ᨕᨙ", "latin": "E", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/e.mp3" },
+      "o": { "type": "o", "symbol": "ᨕᨚ", "latin": "O", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/o.mp3" }
+    }
+  },
+  {
+    "id": "ha",
+    "baseSymbol": "ᨖ",
+    "baseLatin": "HA",
+    "group": "Fricative & Glottal",
+    "row": 6,
+    "vowels": {
+      "a": { "type": "a", "symbol": "ᨖ", "latin": "Ha", "name": "Ina' Surat", "position": "Huruf Dasar", "soundFile": "/audio/aksara/ha.mp3" },
+      "i": { "type": "i", "symbol": "ᨖᨗ", "latin": "Hi", "name": "Tetti' Rirate", "position": "Satu titik di ATAS aksara", "soundFile": "/audio/aksara/hi.mp3" },
+      "u": { "type": "u", "symbol": "ᨖᨘ", "latin": "Hu", "name": "Tetti' Rirawa", "position": "Satu titik di BAWAH aksara", "soundFile": "/audio/aksara/hu.mp3" },
+      "e": { "type": "e", "symbol": "ᨖᨙ", "latin": "He", "name": "Ana' Riolo", "position": "Tanda kait di DEPAN (Kiri) aksara", "soundFile": "/audio/aksara/he.mp3" },
+      "o": { "type": "o", "symbol": "ᨖᨚ", "latin": "Ho", "name": "Ana' Riboko", "position": "Tanda kait di BELAKANG (Kanan) aksara", "soundFile": "/audio/aksara/ho.mp3" }
+    }
+  }
+]
+

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LontaraKu — Platform Pembelajaran Interaktif Bahasa & Aksara Lontara Makassar</title>
+  
+  <!-- Google Fonts: Noto Sans Buginese, Cinzel Decorative, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Noto+Sans+Buginese&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            salaka: {
+              light: '#F2F4F7',
+              base: '#E5E9F0',
+              border: '#D8DEE9',
+              metallic: '#CBD5E1',
+            },
+            eja: {
+              DEFAULT: '#C8102E',
+              dark: '#A60B23',
+              maroon: '#7A0012',
+            },
+            bulaeng: {
+              light: '#FFD700',
+              DEFAULT: '#D4AF37',
+              dark: '#B8860B',
+            },
+            lontar: {
+              cream: '#FDFBF7',
+              soft: '#F7F2E7',
+            },
+            ink: {
+              navy: '#1B2A4A',
+            },
+            leleng: {
+              DEFAULT: '#111827',
+              slate: '#334155',
+              body: '#374151',
+            }
+          },
+          fontFamily: {
+            lontara: ['"Noto Sans Buginese"', 'sans-serif'],
+            display: ['"Cinzel Decorative"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'card-gold': '0 4px 20px -2px rgba(212, 175, 55, 0.15)',
+            'card-hover': '0 10px 25px -3px rgba(200, 16, 46, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .font-lontara {
+      font-family: 'Noto Sans Buginese', sans-serif;
+      font-feature-settings: "liga" 1;
+    }
+  </style>
+</head>
+<body class="bg-salaka-light text-leleng-body font-sans antialiased min-h-screen flex flex-col selection:bg-eja selection:text-white">
+
+  <!-- Sticky Top Navbar (Glassmorphism + Lamming Accent) -->
+  <header class="sticky top-0 z-40 bg-salaka-light/90 backdrop-blur-md border-b border-bulaeng/40 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Brand -->
+        <a href="#beranda" onclick="switchRoute('beranda')" class="flex items-center gap-3 group select-none">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-eja to-eja-dark flex items-center justify-center text-bulaeng-light font-display text-2xl font-bold shadow-md border border-bulaeng/50 group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+            ᨒ
+          </div>
+          <div>
+            <div class="font-display font-black text-2xl tracking-wider text-eja flex items-center gap-0.5">
+              <span>LONTARA</span>
+              <span class="text-bulaeng drop-shadow-sm">KU</span>
+            </div>
+            <span class="block text-[11px] font-semibold tracking-tight text-leleng-slate -mt-1 group-hover:text-eja transition-colors">
+              Bahasa & Budaya Makassar
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Items -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-3" id="desktop-nav">
+          <button onclick="switchRoute('beranda')" id="nav-btn-beranda" class="nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-eja bg-eja/8 shadow-sm after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-bulaeng flex items-center gap-2">
+            <span>Beranda</span>
+            <span class="font-lontara text-xs opacity-50 hidden lg:inline">ᨅᨑᨊ</span>
+          </button>
+          <button onclick="switchRoute('aksara')" id="nav-btn-aksara" class="nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-leleng-slate hover:text-eja hover:bg-salaka-base/60 flex items-center gap-2">
+            <span>Aksara</span>
+            <span class="font-lontara text-xs opacity-50 hidden lg:inline">ᨕᨀᨔᨑ</span>
+          </button>
+          <button onclick="switchRoute('kosakata')" id="nav-btn-kosakata" class="nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-leleng-slate hover:text-eja hover:bg-salaka-base/60 flex items-center gap-2">
+            <span>Kosa Kata</span>
+            <span class="font-lontara text-xs opacity-50 hidden lg:inline">ᨀᨚᨔ ᨀᨈ</span>
+          </button>
+          <button onclick="switchRoute('bacaan')" id="nav-btn-bacaan" class="nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-leleng-slate hover:text-eja hover:bg-salaka-base/60 flex items-center gap-2">
+            <span>Bacaan</span>
+            <span class="font-lontara text-xs opacity-50 hidden lg:inline">ᨅᨌᨕ</span>
+          </button>
+        </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-leleng hover:text-eja hover:bg-salaka-base/80 focus:outline-none" aria-label="Toggle Menu">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden text-eja" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden bg-lontar-cream/95 backdrop-blur-lg border-b-2 border-bulaeng px-4 pt-3 pb-5 space-y-1.5 shadow-xl">
+      <div class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-bulaeng-dark">
+        Menu Pembelajaran
+      </div>
+      <button onclick="switchRoute('beranda'); toggleMobileMenu();" class="mobile-nav-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold bg-eja text-white shadow-md">
+        <span>Beranda</span>
+        <span class="font-lontara text-lg opacity-80">ᨅᨑᨊ</span>
+      </button>
+      <button onclick="switchRoute('aksara'); toggleMobileMenu();" class="mobile-nav-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold text-leleng-slate hover:bg-salaka-light hover:text-eja">
+        <span>Aksara Lontara</span>
+        <span class="font-lontara text-lg opacity-80">ᨕᨀᨔᨑ</span>
+      </button>
+      <button onclick="switchRoute('kosakata'); toggleMobileMenu();" class="mobile-nav-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold text-leleng-slate hover:bg-salaka-light hover:text-eja">
+        <span>Kosa Kata 3D</span>
+        <span class="font-lontara text-lg opacity-80">ᨀᨚᨔ ᨀᨈ</span>
+      </button>
+      <button onclick="switchRoute('bacaan'); toggleMobileMenu();" class="mobile-nav-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold text-leleng-slate hover:bg-salaka-light hover:text-eja">
+        <span>Bacaan Berjenjang</span>
+        <span class="font-lontara text-lg opacity-80">ᨅᨌᨕ</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper / Router Container -->
+  <main class="flex-grow">
+    
+    <!-- Route 1: BERANDA -->
+    <section id="route-beranda" class="route-view">
+      <div class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-salaka-light via-salaka-base to-salaka-light">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-eja via-bulaeng to-eja"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
+            
+            <!-- Ornamen Kiri (ISSUE 11: HIGH-RES SVG ORNAMENT) -->
+            <div class="order-2 lg:order-1 flex justify-center">
+              <div class="relative group bg-lontar-cream/90 backdrop-blur-sm border-2 border-bulaeng/60 hover:border-eja rounded-3xl p-5 shadow-card-gold hover:shadow-card-hover transition-all duration-300 flex flex-col items-center text-center max-w-[260px] w-full">
+                <div class="w-full h-40 rounded-2xl bg-salaka-light border border-salaka-border overflow-hidden mb-3 p-1 flex items-center justify-center">
+                  <img src="./public/assets/ornaments/balla-lompoa.svg" alt="Balla Lompoa Gowa" class="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+                </div>
+                <h4 class="text-base font-extrabold text-leleng leading-tight group-hover:text-eja transition-colors">Balla Lompoa</h4>
+                <p class="text-xs font-semibold text-bulaeng-dark mt-0.5">& Perahu Layar Phinisi</p>
+              </div>
+            </div>
+
+            <!-- Konten Utama Tengah -->
+            <div class="order-1 lg:order-2 flex-1 text-center max-w-3xl mx-auto">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-salaka-base/90 border border-bulaeng/60 text-xs font-bold text-eja mb-6 shadow-sm">
+                <span>✨</span>
+                <span>Platform Pembelajaran Digital Bahasa & Budaya Makassar</span>
+              </div>
+
+              <div 
+                onclick="triggerSpeech('Aksara Lontara Makassar')" 
+                class="cursor-pointer font-lontara text-6xl sm:text-7xl lg:text-8xl text-eja font-bold drop-shadow-[0_2px_4px_rgba(212,175,55,0.4)] my-1 select-none hover:scale-105 transition-transform"
+                title="Klik untuk mendengarkan"
+              >
+                ᨕᨀᨔᨑ ᨒᨚᨈᨑ
+              </div>
+
+              <h1 class="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-leleng tracking-[6px] uppercase mt-2">
+                AKSARA LONTARA
+              </h1>
+
+              <p class="text-lg sm:text-xl font-medium text-leleng-slate mt-4 max-w-2xl mx-auto">
+                "Mari Belajar Bahasa Makassar!"
+              </p>
+              <p class="text-sm text-leleng-body mt-1 max-w-xl mx-auto">
+                Pelajari aksara tradisional melalui metode fonetik interaktif, kosa kata kartu kembar 3D, dan perpustakaan sastra berjenjang yang nyaman di mata.
+              </p>
+
+              <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="switchRoute('aksara')" class="w-full sm:w-auto px-9 py-4 rounded-full bg-eja hover:bg-eja-dark text-white font-bold text-base shadow-lg border-2 border-bulaeng-light hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                  <span>Mulai Belajar Sekarang</span>
+                  <span class="text-bulaeng-light text-xl">➔</span>
+                </button>
+                <button onclick="switchRoute('kosakata')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-lontar-cream hover:bg-salaka-base text-leleng font-bold text-base shadow-sm border border-bulaeng/60 hover:border-eja transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>Jelajahi Kosa Kata 3D</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Ornamen Kanan (ISSUE 11: HIGH-RES SVG ORNAMENT) -->
+            <div class="order-3 flex justify-center">
+              <div class="relative group bg-lontar-cream/90 backdrop-blur-sm border-2 border-bulaeng/60 hover:border-eja rounded-3xl p-5 shadow-card-gold hover:shadow-card-hover transition-all duration-300 flex flex-col items-center text-center max-w-[260px] w-full">
+                <div class="w-full h-40 rounded-2xl bg-salaka-light border border-salaka-border overflow-hidden mb-3 p-1 flex items-center justify-center">
+                  <img src="./public/assets/ornaments/sultan-hasanuddin.svg" alt="Sultan Hasanuddin" class="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+                </div>
+                <h4 class="text-base font-extrabold text-leleng leading-tight group-hover:text-eja transition-colors">Sultan Hasanuddin</h4>
+                <p class="text-xs font-semibold text-bulaeng-dark mt-0.5">& Tari Pakarena Makassar</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Modul Preview -->
+      <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-leleng">
+            Pilih Modul Pembelajaran
+          </h2>
+          <p class="text-sm text-leleng-slate mt-1">
+            Dirancang sistematis untuk pemula hingga pembelajar mahir sastra klasik Makassar
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div onclick="switchRoute('aksara')" class="group relative bg-lontar-cream border-2 border-bulaeng/50 hover:border-eja rounded-3xl p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-salaka-light border border-bulaeng/50 flex items-center justify-center text-ink-navy font-lontara text-4xl mb-4 group-hover:scale-110 group-hover:bg-eja/10 transition-transform">
+                ᨀ
+              </div>
+              <h3 class="text-2xl font-black text-leleng group-hover:text-eja transition-colors">
+                19 Aksara & Suara
+              </h3>
+              <p class="text-sm text-leleng-body mt-2.5 leading-relaxed">
+                Pelajari 19 huruf dasar Lontara (Ina' Surat) lengkap dengan audio asli dan simulasi tanda baca vokal.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-salaka-border flex items-center justify-between text-xs font-bold text-eja">
+              <span>Buka Modul 19 Aksara</span>
+              <span>➔</span>
+            </div>
+          </div>
+
+          <div onclick="switchRoute('kosakata')" class="group relative bg-lontar-cream border-2 border-bulaeng/50 hover:border-eja rounded-3xl p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-salaka-light border border-bulaeng/50 flex items-center justify-center text-bulaeng-dark text-3xl mb-4 group-hover:scale-110 group-hover:bg-bulaeng/10 transition-transform">
+                ✨
+              </div>
+              <h3 class="text-2xl font-black text-leleng group-hover:text-eja transition-colors">
+                Kosa Kata Dual-Card
+              </h3>
+              <p class="text-sm text-leleng-body mt-2.5 leading-relaxed">
+                Sistem kartu kembar berpasangan menghubungkan aksara Lontara, kata Makassar, dan ilustrasi 3D kehidupan sehari-hari.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-salaka-border flex items-center justify-between text-xs font-bold text-eja">
+              <span>Jelajahi Kosa Kata 3D</span>
+              <span>➔</span>
+            </div>
+          </div>
+
+          <div onclick="switchRoute('bacaan')" class="group relative bg-lontar-cream border-2 border-bulaeng/50 hover:border-eja rounded-3xl p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-salaka-light border border-bulaeng/50 flex items-center justify-center text-eja text-3xl mb-4 group-hover:scale-110 group-hover:bg-eja/10 transition-transform">
+                📖
+              </div>
+              <h3 class="text-2xl font-black text-leleng group-hover:text-eja transition-colors">
+                Bacaan Berjenjang
+              </h3>
+              <p class="text-sm text-leleng-body mt-2.5 leading-relaxed">
+                Perpustakaan bertingkat dari sapaan pemula, cerita harian, 7 puisi, hingga naskah sakral Sumpah Angngaru & lagu daerah.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-salaka-border flex items-center justify-between text-xs font-bold text-eja">
+              <span>Mulai Membaca</span>
+              <span>➔</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Route 2: AKSARA (LENGKAP GRID 19 HURUF & POP-UP MODAL ISSUE 7) -->
+    <section id="route-aksara" class="route-view hidden py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-salaka-base border border-bulaeng/50 text-xs font-bold text-eja mb-4 shadow-sm">
+          <span>✨</span>
+          <span>MODUL 1: 19 AKSARA DASAR LONTARA MAKASSAR</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-leleng tracking-tight">
+          19 Aksara Dasar (Ina' Surat)
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-eja via-bulaeng to-eja mx-auto my-3 rounded-full"></div>
+        <p class="text-sm sm:text-base text-leleng-slate leading-relaxed">
+          Tabel fonetik 19 aksara Lontara Makassar. <strong>Klik pada kartu huruf mana saja</strong> untuk membuka jendela <strong>Pop-Up Zoom 120px</strong> dan mendengarkan variasi vokal <em>Ki, Ku, Ke, Ko</em>.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto space-y-8" id="aksara-cards-container">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Route 3: KOSA KATA (LENGKAP 12 DUAL-CARD & FILTER - ISSUE 8) -->
+    <section id="route-kosakata" class="route-view hidden py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <!-- Header Modul Kosa Kata -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-salaka-base border border-bulaeng/50 text-xs font-bold text-eja mb-4 shadow-sm">
+          <span>✨</span>
+          <span>MODUL 2: DUAL-CARD SYSTEM & 12 KOSA KATA</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-leleng tracking-tight">
+          Kosa Kata Bahasa Makassar Sehari-hari
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-eja via-bulaeng to-eja mx-auto my-3 rounded-full"></div>
+        <p class="text-sm sm:text-base text-leleng-slate leading-relaxed">
+          Hubungkan goresan aksara Lontara dengan kata bahasa Makassar dan ilustrasi 3D kehidupan sehari-hari. <strong>Kartu Kiri</strong> menampilkan aksara Lontara & terjemahan, sedangkan <strong>Kartu Kanan</strong> menyertakan kata tebal, audio pelafalan, dan gambar visual kontekstual.
+        </p>
+      </div>
+
+      <!-- Petunjuk Linguistik PM -->
+      <div class="bg-lontar-cream border border-bulaeng/40 rounded-2xl p-4 mb-8 max-w-4xl mx-auto flex items-center gap-3 shadow-sm text-xs text-leleng-slate">
+        <span class="text-xl">💡</span>
+        <div>
+          <strong class="text-leleng font-bold">Catatan Linguistik:</strong> Kata <em>Kuttu</em> ditulis <em>Ku-Tu</em> (<strong>ᨀᨘᨈᨘ</strong>) dan <em>Balla'</em> ditulis <em>Ba-La</em> (<strong>ᨅᨒ</strong>) karena aksara Lontara tradisional tidak menuliskan konsonan akhir glotal mati.
+        </div>
+      </div>
+
+      <!-- Filter Kategori Kosa Kata -->
+      <div class="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-4 px-2 mb-8 max-w-5xl mx-auto no-scrollbar" id="vocab-category-filters">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Daftar Wadah Pasangan Kartu Kembar (Dual-Card Pairs) -->
+      <div class="max-w-5xl mx-auto space-y-8" id="vocab-cards-list">
+        <!-- Rendered by JS -->
+      </div>
+
+    </section>
+
+    <!-- Route 4: BACAAN (ISSUE 9 FEATURE: TWO-COLUMN WORKSPACE) -->
+    <section id="route-bacaan" class="route-view hidden py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <!-- Breadcrumb -->
+      <div class="mb-6 flex items-center justify-between">
+        <button onclick="switchRoute('beranda')" class="inline-flex items-center gap-2 text-xs font-bold text-leleng-slate hover:text-eja transition-colors">
+          <span>&larr; Kembali ke Beranda</span>
+        </button>
+        <span class="text-xs font-bold text-bulaeng-dark bg-bulaeng/15 px-3 py-1 rounded-full border border-bulaeng/30">
+          22 Naskah Lontara Lengkap (Level 1-4)
+        </span>
+      </div>
+
+      <!-- Header Halaman -->
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-eja/10 border border-eja/20 text-xs font-bold text-eja mb-3">
+          <span>MODUL 3: PERPUSTAKAAN BACAAN BERJENJANG</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-leleng tracking-tight">
+          Perpustakaan Bacaan Aksara Lontara
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-eja to-bulaeng mx-auto my-3 rounded-full"></div>
+        <p class="text-sm sm:text-base text-leleng-slate max-w-2xl mx-auto">
+          Tingkatkan kemahiran membaca dari kalimat sapaan pemula hingga karya sastra klasik Makassar seperti Ikrar Sumpah Tubarani (<em>Angngaru</em>) dan 4 lagu daerah legendaris.
+        </p>
+      </div>
+
+      <!-- Navigasi 4 Tab Level (Horizontal) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6" id="reading-level-tabs">
+        <!-- Dynamic Level Tabs -->
+      </div>
+
+      <!-- Komponen ReadingControls (ISSUE 10 FEATURE: TOGGLE & AUDIO PLAYER BAR) -->
+      <div id="reading-controls-bar" class="mb-6 p-4 bg-salaka-light/95 border border-bulaeng/40 rounded-2xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-sm">
+        <!-- Grup Toggle Bantu Baca -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="text-xs font-black text-leleng uppercase tracking-wider flex items-center gap-1.5 mr-1">
+            <span class="text-eja text-sm">📖</span> Bantu Baca:
+          </span>
+
+          <!-- Toggle Transliterasi Latin -->
+          <button id="btn-toggle-latin" onclick="toggleReadingLatin()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-ink-navy text-white border-ink-navy shadow-sm" title="Sembunyikan / Tampilkan teks Latin Makassar">
+            <span>👁️</span> <span>Latin Makassar <span id="label-toggle-latin">(Aktif)</span></span>
+          </button>
+
+          <!-- Toggle Terjemahan Indonesia -->
+          <button id="btn-toggle-indo" onclick="toggleReadingIndo()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-bulaeng-dark text-white border-bulaeng-dark shadow-sm" title="Sembunyikan / Tampilkan terjemahan Indonesia">
+            <span>👁️</span> <span>Terjemahan <span id="label-toggle-indo">(Aktif)</span></span>
+          </button>
+
+          <!-- Shortcut 1-Click: Mode Murni Lontara -->
+          <button id="btn-toggle-pure-lontara" onclick="togglePureLontaraMode()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black transition-all border bg-salaka-base/80 text-leleng border-salaka-border hover:border-eja/50" title="Mode belajar mandiri murni Aksara Lontara tanpa huruf Latin & terjemahan">
+            <span>✨</span> <span id="label-pure-lontara">Mode Murni Lontara</span>
+          </button>
+        </div>
+
+        <!-- Pemutar Audio Narator / Lagu Daerah -->
+        <div class="flex items-center justify-end">
+          <button id="btn-reading-audio" onclick="toggleCurrentReadingAudio()" class="w-full md:w-auto flex items-center justify-center gap-2 px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md bg-eja text-white hover:bg-eja-dark border border-bulaeng">
+            <span id="audio-reading-icon">🔊</span>
+            <span id="label-reading-audio">Dengarkan Bacaan / Lagu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Two-Column Workspace Container -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        <!-- Kolom Kiri: Sidebar Daftar Naskah -->
+        <div id="reading-sidebar-container" class="w-full lg:w-[360px] flex-shrink-0 bg-salaka-light/80 border border-bulaeng/40 rounded-3xl p-4 shadow-sm flex flex-col h-fit max-h-[820px]">
+          <!-- Dynamic sidebar items -->
+        </div>
+
+        <!-- Kolom Kanan: Kanvas Membaca Utama -->
+        <div id="reading-canvas-container" class="flex-1 w-full">
+          <!-- Dynamic canvas content -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL POP-UP ZOOM AKSARA (ISSUE 7 FEATURE - 620px) -->
+  <div id="aksara-modal" class="fixed inset-0 z-50 bg-leleng/60 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto" onclick="closeAksaraModal()">
+    <div class="relative bg-lontar-cream border-2 border-bulaeng rounded-3xl max-w-[620px] w-full shadow-2xl overflow-hidden select-none" onclick="event.stopPropagation()">
+      
+      <!-- Header Modal Merah Lamming -->
+      <div class="bg-gradient-to-r from-eja via-eja to-eja-dark px-6 py-4 flex items-center justify-between border-b border-bulaeng text-white">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-bulaeng/20 border border-bulaeng-light flex items-center justify-center text-bulaeng-light">
+            ✨
+          </div>
+          <div>
+            <h3 id="modal-title" class="font-display font-extrabold text-lg text-white leading-tight">
+              Aksara Dasar: KA (Ina' Surat)
+            </h3>
+            <span id="modal-group-badge" class="text-[11px] font-semibold text-bulaeng-light/90 block">
+              Kelompok Fonetik Velar • Baris 1
+            </span>
+          </div>
+        </div>
+
+        <button onclick="closeAksaraModal()" class="p-2 rounded-xl text-white/80 hover:text-bulaeng-light hover:bg-white/10 transition-colors" aria-label="Tutup Modal">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Body Modal -->
+      <div class="p-6 sm:p-8">
+        
+        <!-- Central Showcase Box (Zoom 120px) -->
+        <div class="bg-salaka-light/90 border-2 border-salaka-border rounded-3xl p-6 sm:p-8 text-center shadow-inner relative overflow-hidden">
+          <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-bulaeng opacity-60"></div>
+          <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-bulaeng opacity-60"></div>
+          <div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-bulaeng opacity-60"></div>
+          <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-bulaeng opacity-60"></div>
+
+          <!-- Raksasa Lontara Symbol 120px -->
+          <div id="modal-symbol" class="font-lontara text-8xl sm:text-9xl text-ink-navy leading-none py-2 select-none">
+            ᨀ
+          </div>
+
+          <div id="modal-latin-label" class="text-3xl sm:text-4xl font-black text-leleng mt-2 tracking-wider">
+            "KA"
+          </div>
+
+          <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-salaka-base/80 border border-salaka-border text-xs text-leleng-slate font-medium">
+            <span id="modal-diacritic-name" class="font-bold text-eja">Ina' Surat</span>
+            <span>—</span>
+            <span id="modal-diacritic-pos">Huruf Dasar Tanpa Tanda Baca</span>
+          </div>
+        </div>
+
+        <!-- Tombol Audio Pemutar Suara Pelafalan -->
+        <button id="modal-audio-btn" onclick="playModalActiveSound()" class="w-full mt-6 py-4 px-6 rounded-full font-bold flex items-center justify-center gap-3 bg-eja hover:bg-eja-dark text-white border-2 border-bulaeng-light shadow-md transition-all">
+          <span class="text-lg">🔊</span>
+          <span id="modal-audio-btn-text" class="text-sm sm:text-base">Putar Suara Pelafalan: "Ka"</span>
+        </button>
+
+        <!-- Selektor 5 Tanda Baca Vokal (Ana' Surat) -->
+        <div class="mt-8">
+          <div class="flex items-center justify-between mb-3">
+            <label class="text-xs font-bold uppercase tracking-wider text-leleng-slate">
+              Pilih Tanda Baca Vokal (Ana' Surat):
+            </label>
+            <span class="text-[11px] font-semibold text-bulaeng-dark">
+              5 Variasi Bunyi
+            </span>
+          </div>
+
+          <div class="grid grid-cols-5 gap-2 sm:gap-2.5" id="vowel-selector-group">
+            <!-- Vowel buttons injected by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Modal -->
+      <div class="bg-salaka-base/60 px-6 py-3.5 border-t border-salaka-border flex items-center justify-between text-xs text-leleng-slate">
+        <span>Tekan tombol <kbd class="px-1.5 py-0.5 bg-salaka-light border border-gray-300 rounded text-[10px] font-mono">ESC</kbd> untuk menutup</span>
+        <button onclick="closeAksaraModal()" class="font-bold text-eja hover:underline">
+          Tutup
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Cultural Footer -->
+  <footer class="bg-salaka-base/80 border-t border-bulaeng/40 text-leleng-body relative mt-auto overflow-hidden">
+    <div class="h-1.5 w-full bg-gradient-to-r from-eja via-bulaeng to-eja"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-eja to-eja-dark flex items-center justify-center text-bulaeng-light font-display text-xl font-bold shadow-md border border-bulaeng/50">
+              ᨒ
+            </div>
+            <span class="font-display font-black text-2xl tracking-wider text-eja">
+              LONTARA<span class="text-bulaeng">KU</span>
+            </span>
+          </div>
+          <p class="text-sm text-leleng-slate max-w-md leading-relaxed">
+            Platform pembelajaran digital interaktif berbasis web untuk melestarikan dan memperdalam 
+            <strong> Bahasa Makassar</strong> dan <strong>Aksara Lontara</strong>.
+          </p>
+          <div class="pt-2 text-xs text-bulaeng-dark font-serif italic">
+            "Resopa natinulu, nallete pammase dewata." (Hanya dengan kerja keras dan ketekunan, rahmat Tuhan akan tercurah.)
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-leleng mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-eja"></span>
+            Modul Belajar
+          </h4>
+          <ul class="space-y-2.5 text-sm">
+            <li>
+              <button onclick="switchRoute('aksara')" class="text-leleng-slate hover:text-eja transition-colors">
+                19 Aksara & Suara (Ina' Surat)
+              </button>
+            </li>
+            <li>
+              <button onclick="switchRoute('kosakata')" class="text-leleng-slate hover:text-eja transition-colors">
+                Kosa Kata Visual Dual-Card
+              </button>
+            </li>
+            <li>
+              <button onclick="switchRoute('bacaan')" class="text-leleng-slate hover:text-eja transition-colors">
+                Bacaan Berjenjang Level 1-4
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-leleng mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-bulaeng"></span>
+            Warisan Budaya
+          </h4>
+          <ul class="space-y-2 text-xs text-leleng-slate">
+            <li class="flex items-center gap-2">
+              <span class="font-lontara text-base text-ink-navy">ᨅᨒ ᨒᨚᨄᨚ</span>
+              <span>Balla Lompoa Gowa</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="font-lontara text-base text-ink-navy">ᨔᨘᨒᨈ ᨖᨔᨊᨘᨉᨗ</span>
+              <span>Sultan Hasanuddin</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="font-lontara text-base text-ink-navy">ᨄᨗᨊᨗᨔᨗ</span>
+              <span>Perahu Layar Phinisi</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="font-lontara text-base text-ink-navy">ᨕᨂᨑᨘ</span>
+              <span>Ikrar Sumpah Angngaru</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-salaka-border flex flex-col sm:flex-row items-center justify-between text-xs text-leleng-slate gap-3">
+        <p>
+          &copy; 2026 <strong>LontaraKu</strong>. Hak Cipta Dilindungi Undang-Undang.
+        </p>
+        <p class="flex items-center gap-1.5 text-xs font-medium">
+          <span>Didedikasikan untuk pelestarian budaya Makassar</span>
+          <span class="text-eja">❤️</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // 19 Aksara
+    const AKSARA_DATA = [
+      { id: 'ka', baseLatin: 'KA', baseSymbol: 'ᨀ', group: 'Velar', row: 1 },
+      { id: 'ga', baseLatin: 'GA', baseSymbol: 'ᨁ', group: 'Velar', row: 1 },
+      { id: 'nga', baseLatin: 'NGA', baseSymbol: 'ᨂ', group: 'Velar', row: 1 },
+      { id: 'pa', baseLatin: 'PA', baseSymbol: 'ᨄ', group: 'Labial', row: 2 },
+      { id: 'ba', baseLatin: 'BA', baseSymbol: 'ᨅ', group: 'Labial', row: 2 },
+      { id: 'ma', baseLatin: 'MA', baseSymbol: 'ᨆ', group: 'Labial', row: 2 },
+      { id: 'ta', baseLatin: 'TA', baseSymbol: 'ᨈ', group: 'Dental', row: 3 },
+      { id: 'da', baseLatin: 'DA', baseSymbol: 'ᨉ', group: 'Dental', row: 3 },
+      { id: 'na', baseLatin: 'NA', baseSymbol: 'ᨊ', group: 'Dental', row: 3 },
+      { id: 'ca', baseLatin: 'CA', baseSymbol: 'ᨌ', group: 'Palatal', row: 4 },
+      { id: 'ja', baseLatin: 'JA', baseSymbol: 'ᨍ', group: 'Palatal', row: 4 },
+      { id: 'nya', baseLatin: 'NYA', baseSymbol: 'ᨎ', group: 'Palatal', row: 4 },
+      { id: 'ya', baseLatin: 'YA', baseSymbol: 'ᨐ', group: 'Approximant', row: 5 },
+      { id: 'ra', baseLatin: 'RA', baseSymbol: 'ᨑ', group: 'Approximant', row: 5 },
+      { id: 'la', baseLatin: 'LA', baseSymbol: 'ᨒ', group: 'Approximant', row: 5 },
+      { id: 'wa', baseLatin: 'WA', baseSymbol: 'ᨓ', group: 'Fricative & Glottal', row: 6 },
+      { id: 'sa', baseLatin: 'SA', baseSymbol: 'ᨔ', group: 'Fricative & Glottal', row: 6 },
+      { id: 'a', baseLatin: 'A', baseSymbol: 'ᨕ', group: 'Fricative & Glottal', row: 6 },
+      { id: 'ha', baseLatin: 'HA', baseSymbol: 'ᨖ', group: 'Fricative & Glottal', row: 6 }
+    ];
+
+    // 12 Kosa Kata
+    const VOCAB_DATA = [
+      { id: 'kuttu', category: 'Sifat & Sikap', lontara: 'ᨀᨘᨈᨘ', makassar: 'Kuttu', indo: 'Malas', exMak: "Teako kuttu dudui a'boya ilmu.", exIndo: "Jangan terlalu malas mencari ilmu.", emoji: '🥱' },
+      { id: 'caradde', category: 'Sifat & Sikap', lontara: 'ᨌᨑᨉᨙ', makassar: "Caradde'", indo: 'Pintar / Rajin', exMak: "Anne ana'a salloji na caradde'.", exIndo: "Anak ini kelak menjadi pintar.", emoji: '📖' },
+      { id: 'ngandre', category: 'Kegiatan Harian', lontara: 'ᨂᨉᨑᨙ', makassar: 'Ngandre', indo: 'Makan', exMak: "Mae maki' ngandre Coto.", exIndo: "Mari kita makan Coto.", emoji: '🍲' },
+      { id: 'angnginung', category: 'Kegiatan Harian', lontara: 'ᨕᨚᨊᨘ', makassar: 'Angnginung', indo: 'Minum', exMak: "Angnginungko je'ne' baji'-baji'.", exIndo: "Minumlah air baik-baik.", emoji: '🥛' },
+      { id: 'tinro', category: 'Kegiatan Harian', lontara: 'ᨈᨗᨊᨑᨚ', makassar: 'Tinro', indo: 'Tidur', exMak: "Wattunami tinro baniang.", exIndo: "Sudah waktunya tidur malam.", emoji: '🛌' },
+      { id: 'alampa', category: 'Kegiatan Harian', lontara: 'ᨕᨒᨅ', makassar: "A'lampa", indo: 'Berjalan / Pergi', exMak: "A'lampa ma' ri sikolaya.", exIndo: "Saya pergi ke sekolah dulu.", emoji: '🚶‍♂️' },
+      { id: 'rannu', category: 'Emosi & Perasaan', lontara: 'ᨑᨊᨘ', makassar: 'Rannu', indo: 'Gembira / Senang', exMak: "Rannu nyawaku ancinikko.", exIndo: "Senang hatiku melihatmu.", emoji: '🎉' },
+      { id: 'laro', category: 'Emosi & Perasaan', lontara: 'ᨒᨑᨚ', makassar: 'Laro', indo: 'Marah', exMak: "Teako laro-laroi.", exIndo: "Jangan suka marah-marah.", emoji: '😡' },
+      { id: 'balla', category: 'Benda & Tempat', lontara: 'ᨅᨒ', makassar: "Balla'", indo: 'Rumah', exMak: "Ammantanga' ri balla'.", exIndo: "Saya tinggal di rumah.", emoji: '🏡' },
+      { id: 'jene', category: 'Benda & Alam', lontara: 'ᨍᨙᨊᨙ', makassar: "Je'ne'", indo: 'Air', exMak: "Je'ne' kassi ri Mangkasara'.", exIndo: "Air bersih untuk mandi dan minum.", emoji: '💧' },
+      { id: 'lompo', category: 'Ukuran & Sifat', lontara: 'ᨒᨚᨄᨚ', makassar: 'Lompo', indo: 'Besar', exMak: "Balla' lompo.", exIndo: "Rumah yang besar.", emoji: '⛵' },
+      { id: 'cadi', category: 'Ukuran & Sifat', lontara: 'ᨌᨉᨗ', makassar: "Ca'di", indo: 'Kecil', exMak: "Ana' jangang ca'di.", exIndo: "Anak ayam yang kecil.", emoji: '🐣' }
+    ];
+
+    const VOWEL_RULES = {
+      a: { diacritic: '', name: "Ina' Surat", desc: "Huruf Dasar Tanpa Tanda Baca", pos: "Dasar" },
+      i: { diacritic: '\u1A17', name: "Tetti' Rirate", desc: "Satu titik di ATAS aksara", pos: "Titik Atas" },
+      u: { diacritic: '\u1A18', name: "Tetti' Rirawa", desc: "Satu titik di BAWAH aksara", pos: "Titik Bawah" },
+      e: { diacritic: '\u1A19', name: "Ana' Riolo", desc: "Tanda kait di DEPAN (Kiri) aksara", pos: "Depan" },
+      o: { diacritic: '\u1A1A', name: "Ana' Riboko", desc: "Tanda kait di BELAKANG (Kanan) aksara", pos: "Belakang" }
+    };
+
+    let activeModalChar = null;
+    let activeModalVowel = 'a';
+    let currentVocabCategory = 'Semua';
+
+    // Render Aksara Grid
+    function renderAksaraGrid() {
+      const container = document.getElementById('aksara-cards-container');
+      if (!container) return;
+
+      const rows = [
+        { row: 1, group: 'Velar', desc: 'Konsonan Langit-langit Belakang (KA, GA, NGA)' },
+        { row: 2, group: 'Labial', desc: 'Konsonan Bibir (PA, BA, MA)' },
+        { row: 3, group: 'Dental', desc: 'Konsonan Gigi (TA, DA, NA)' },
+        { row: 4, group: 'Palatal', desc: 'Konsonan Langit-langit Keras (CA, JA, NYA)' },
+        { row: 5, group: 'Approximant', desc: 'Konsonan Hampiran & Cair (YA, RA, LA)' },
+        { row: 6, group: 'Fricative & Glottal', desc: 'Konsonan Geser & Celah Suara (WA, SA, A, HA)' }
+      ];
+
+      container.innerHTML = rows.map(r => {
+        const rowChars = AKSARA_DATA.filter(c => c.row === r.row);
+        const isFour = rowChars.length === 4;
+
+        return `
+          <div class="bg-salaka-base/40 border border-salaka-border rounded-3xl p-5 sm:p-6 shadow-sm">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-bulaeng/30">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-eja text-white text-xs font-black flex items-center justify-center">${r.row}</span>
+                <h3 class="text-base font-extrabold text-leleng">Baris ${r.row}: Kelompok ${r.group}</h3>
+              </div>
+              <span class="text-xs text-leleng-slate font-medium">${r.desc}</span>
+            </div>
+            <div class="grid gap-4 sm:gap-6 ${isFour ? 'grid-cols-2 sm:grid-cols-2 md:grid-cols-4' : 'grid-cols-1 sm:grid-cols-3'}">
+              ${rowChars.map(c => `
+                <div onclick="openAksaraModal('${c.id}')" class="group relative bg-lontar-cream border-2 border-bulaeng/50 hover:border-eja rounded-2xl p-5 shadow-sm hover:shadow-card-hover hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col items-center justify-between min-h-[190px] select-none">
+                  <button onclick="event.stopPropagation(); triggerSpeech('${c.baseLatin}')" class="absolute top-3 right-3 p-2 rounded-full bg-salaka-light text-eja hover:bg-eja hover:text-white transition-colors" title="Dengar suara">
+                    🔊
+                  </button>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-bulaeng-dark/80 bg-bulaeng/10 px-2 py-0.5 rounded self-start">${c.group}</span>
+                  <div class="font-lontara text-6xl sm:text-7xl text-ink-navy group-hover:scale-115 transition-transform duration-300 py-2 leading-none">${c.baseSymbol}</div>
+                  <div class="text-center w-full pt-2 border-t border-salaka-border/60">
+                    <div class="text-xl font-black text-leleng tracking-wider group-hover:text-eja transition-colors">${c.baseLatin}</div>
+                    <span class="text-[10px] text-leleng-slate font-medium">Klik untuk Zoom & Vokal</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Kosa Kata Dual-Card & Filter
+    function renderVocabSection() {
+      const filtersContainer = document.getElementById('vocab-category-filters');
+      const cardsContainer = document.getElementById('vocab-cards-list');
+      if (!filtersContainer || !cardsContainer) return;
+
+      const categories = ['Semua', 'Sifat & Sikap', 'Kegiatan Harian', 'Emosi & Perasaan', 'Benda & Tempat', 'Benda & Alam', 'Ukuran & Sifat'];
+
+      // Render Filter Pills
+      filtersContainer.innerHTML = categories.map(cat => {
+        const count = cat === 'Semua' ? VOCAB_DATA.length : VOCAB_DATA.filter(v => v.category === cat).length;
+        const isActive = currentVocabCategory === cat;
+
+        return `
+          <button onclick="filterVocabCategory('${cat}')" class="whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border flex-shrink-0 ${
+            isActive
+              ? 'bg-eja text-white border-bulaeng-light shadow-md scale-105'
+              : 'bg-lontar-cream text-leleng-slate border-bulaeng/40 hover:border-eja hover:text-eja'
+          }">
+            <span>${cat}</span>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] ${isActive ? 'bg-white/20 text-white' : 'bg-salaka-base text-bulaeng-dark'}">${count}</span>
+          </button>
+        `;
+      }).join('');
+
+      // Filter Data
+      const filtered = currentVocabCategory === 'Semua' ? VOCAB_DATA : VOCAB_DATA.filter(v => v.category === currentVocabCategory);
+
+      // Render Dual-Card Pairs
+      cardsContainer.innerHTML = filtered.map(v => `
+        <div class="bg-salaka-base/50 border-2 border-bulaeng/40 hover:border-eja/80 rounded-3xl p-5 sm:p-7 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch justify-center">
+            
+            <!-- KARTU KIRI: Lontara & Indo Miring -->
+            <div class="bg-lontar-cream border-2 border-bulaeng/50 rounded-2xl p-6 min-h-[320px] flex flex-col justify-between items-center text-center shadow-sm relative overflow-hidden group">
+              <div class="w-full flex items-center justify-between pb-2 border-b border-salaka-border">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-bulaeng-dark">Aksara Lontara</span>
+                <span class="text-[11px] text-leleng-slate font-medium">Goresan Asli</span>
+              </div>
+              <div class="my-auto py-3">
+                <div class="font-lontara text-6xl sm:text-7xl text-ink-navy leading-none tracking-wide group-hover:scale-110 transition-transform select-none">
+                  ${v.lontara}
+                </div>
+              </div>
+              <div class="w-full pt-3 border-t border-salaka-border">
+                <span class="text-xl sm:text-2xl font-serif italic text-leleng font-bold tracking-tight block">
+                  "${v.indo}"
+                </span>
+                <span class="text-[10px] text-leleng-slate uppercase font-semibold mt-0.5 block">Arti Bahasa Indonesia</span>
+              </div>
+            </div>
+
+            <!-- KARTU KANAN: Kata Makassar & 3D Visual -->
+            <div class="bg-lontar-cream border-2 border-bulaeng/50 rounded-2xl p-6 min-h-[320px] flex flex-col justify-between items-center shadow-sm relative overflow-hidden group">
+              <div class="w-full flex items-center justify-between pb-2 border-b border-salaka-border">
+                <div>
+                  <span class="text-2xl font-black text-leleng group-hover:text-eja transition-colors block leading-tight">
+                    ${v.makassar}
+                  </span>
+                  <span class="text-[10px] font-semibold text-bulaeng-dark uppercase">Bahasa Makassar</span>
+                </div>
+                <button onclick="triggerSpeech('${v.makassar}')" class="p-2.5 rounded-full bg-eja/10 text-eja hover:bg-eja hover:text-white transition-colors" title="Dengarkan suara">
+                  🔊
+                </button>
+              </div>
+
+              <!-- 3D Area Bergaya Pixar (ISSUE 11: SVG ASSET INTEGRATION) -->
+              <div class="w-full h-[190px] rounded-2xl bg-salaka-light/80 border border-salaka-border overflow-hidden flex items-center justify-center my-2 p-1.5 relative">
+                <img src="./public/assets/vocabulary/${v.id}.svg" alt="${v.makassar}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center p-3 text-center\'><span class=\'text-5xl mb-1\'>${v.emoji}</span><span class=\'text-xs font-bold text-leleng\'>${v.makassar}</span></div>';" />
+              </div>
+
+              <div class="w-full flex items-center justify-between text-xs pt-2 border-t border-salaka-border">
+                <span class="text-[11px] font-semibold text-leleng-slate">Kategori:</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-salaka-base text-leleng font-bold text-[10px] border border-salaka-border">${v.category}</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Footer Wadah: Contoh Kalimat -->
+          <div class="mt-4 pt-3 border-t-2 border-bulaeng/30 px-3 bg-salaka-light/60 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-eja text-white text-[10px] font-black uppercase flex-shrink-0">Contoh</span>
+              <p class="text-xs sm:text-sm text-leleng font-bold italic">"${v.exMak}"</p>
+            </div>
+            <p class="text-xs text-leleng-slate font-medium italic sm:text-right">(${v.exIndo})</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterVocabCategory(cat) {
+      currentVocabCategory = cat;
+      renderVocabSection();
+    }
+
+    // Modal Zoom Functions
+    function openAksaraModal(charId) {
+      const char = AKSARA_DATA.find(c => c.id === charId);
+      if (!char) return;
+
+      activeModalChar = char;
+      activeModalVowel = 'a';
+
+      updateModalView();
+      
+      const modal = document.getElementById('aksara-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      // Auto play speech
+      triggerSpeech(char.baseLatin);
+    }
+
+    function closeAksaraModal() {
+      const modal = document.getElementById('aksara-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function selectModalVowel(vowelKey) {
+      activeModalVowel = vowelKey;
+      updateModalView();
+
+      const charRoot = activeModalChar.baseLatin.toLowerCase().slice(0, -1);
+      const spokenWord = (activeModalChar.baseLatin === 'A' ? '' : charRoot) + vowelKey;
+      triggerSpeech(spokenWord);
+    }
+
+    function updateModalView() {
+      if (!activeModalChar) return;
+
+      const rule = VOWEL_RULES[activeModalVowel];
+      const charRoot = activeModalChar.baseLatin.toLowerCase().slice(0, -1);
+      const currentLatin = (activeModalChar.baseLatin === 'A' ? '' : charRoot) + activeModalVowel;
+
+      document.getElementById('modal-title').innerText = `Aksara Dasar: ${activeModalChar.baseLatin} (Ina' Surat)`;
+      document.getElementById('modal-group-badge').innerText = `Kelompok Fonetik ${activeModalChar.group} • Baris ${activeModalChar.row}`;
+      
+      document.getElementById('modal-symbol').innerText = activeModalChar.baseSymbol + rule.diacritic;
+      document.getElementById('modal-latin-label').innerText = `"${currentLatin.toUpperCase()}"`;
+      document.getElementById('modal-diacritic-name').innerText = rule.name;
+      document.getElementById('modal-diacritic-pos').innerText = rule.desc;
+      document.getElementById('modal-audio-btn-text').innerText = `Putar Suara Pelafalan: "${currentLatin.toUpperCase()}"`;
+
+      const vowelGroup = document.getElementById('vowel-selector-group');
+      vowelGroup.innerHTML = Object.keys(VOWEL_RULES).map(v => {
+        const vRule = VOWEL_RULES[v];
+        const vLatin = (activeModalChar.baseLatin === 'A' ? '' : charRoot) + v;
+        const isActive = activeModalVowel === v;
+
+        return `
+          <button onclick="selectModalVowel('${v}')" class="flex flex-col items-center justify-center p-2 sm:p-3 rounded-2xl border-2 transition-all focus:outline-none ${
+            isActive
+              ? 'bg-eja text-white border-bulaeng-light shadow-md scale-105'
+              : 'bg-salaka-light text-leleng border-salaka-border hover:border-bulaeng hover:bg-salaka-base'
+          }">
+            <span class="font-lontara text-2xl sm:text-3xl mb-0.5 leading-none">${activeModalChar.baseSymbol + vRule.diacritic}</span>
+            <span class="text-xs font-black ${isActive ? 'text-bulaeng-light' : 'text-leleng'}">${vLatin.toUpperCase()}</span>
+            <span class="text-[9px] font-medium hidden sm:inline ${isActive ? 'text-white/80' : 'text-leleng-slate'}">${vRule.pos}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function playModalActiveSound() {
+      if (!activeModalChar) return;
+      const charRoot = activeModalChar.baseLatin.toLowerCase().slice(0, -1);
+      const currentLatin = (activeModalChar.baseLatin === 'A' ? '' : charRoot) + activeModalVowel;
+      triggerSpeech(currentLatin);
+    }
+
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAksaraModal();
+      }
+    });
+
+    function triggerSpeech(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = 'id-ID';
+        u.rate = 0.85;
+        u.pitch = 1.0;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+
+    // DATA BACAAN (ISSUE 9: 22 NASKAH LEVEL 1-4)
+    const BACAAN_DATA = [{"id": "l1-01", "level": 1, "code": "L1-01", "titleLontara": "ᨕᨔᨒᨆᨘ ᨕᨒᨗᨀᨘ", "titleMakassar": "Assalamu Alaikum", "titleIndonesian": "Semoga keselamatan menyertaimu", "category": "sapaan", "audioFile": "/audio/bacaan/l1_01.mp3", "stanzas": [{"lontara": "ᨕᨔᨒᨆᨘ ᨕᨒᨗᨀᨘ", "makassar": "Assalamu Alaikum", "indonesian": "Semoga keselamatan menyertaimu (Salam pembuka)"}]}, {"id": "l1-02", "level": 1, "code": "L1-02", "titleLontara": "ᨕᨄ ᨀᨅᨑ", "titleMakassar": "Apa kareba?", "titleIndonesian": "Apa kabar?", "category": "sapaan", "audioFile": "/audio/bacaan/l1_02.mp3", "stanzas": [{"lontara": "ᨕᨄ ᨀᨅᨑ", "makassar": "Apa kareba?", "indonesian": "Apa kabar?"}]}, {"id": "l1-03", "level": 1, "code": "L1-03", "titleLontara": "ᨅᨍᨗ ᨅᨍᨗᨍ", "titleMakassar": "Baji'-baji'ji.", "titleIndonesian": "Baik-baik saja.", "category": "sapaan", "audioFile": "/audio/bacaan/l1_03.mp3", "stanzas": [{"lontara": "ᨅᨍᨗ ᨅᨍᨗᨍ", "makassar": "Baji'-baji'ji.", "indonesian": "Baik-baik saja."}]}, {"id": "l1-04", "level": 1, "code": "L1-04", "titleLontara": "ᨕᨗᨊᨀᨙ ᨕᨑᨙᨊᨘ", "titleMakassar": "Inai arennu?", "titleIndonesian": "Siapa namamu?", "category": "sapaan", "audioFile": "/audio/bacaan/l1_04.mp3", "stanzas": [{"lontara": "ᨕᨗᨊᨀᨙ ᨕᨑᨙᨊᨘ", "makassar": "Inai arennu?", "indonesian": "Siapa namamu?"}]}, {"id": "l1-05", "level": 1, "code": "L1-05", "titleLontara": "ᨕᨑᨙᨀᨘ ᨔᨗ ᨅᨌᨚ", "titleMakassar": "Arengku si Baco.", "titleIndonesian": "Namaku si Baco.", "category": "sapaan", "audioFile": "/audio/bacaan/l1_05.mp3", "stanzas": [{"lontara": "ᨕᨑᨙᨀᨘ ᨔᨗ ᨅᨌᨚ", "makassar": "Arengku si Baco.", "indonesian": "Namaku si Baco."}]}, {"id": "l1-06", "level": 1, "code": "L1-06", "titleLontara": "ᨀᨙᨆᨕᨙᨀᨚ ᨕᨒᨅ", "titleMakassar": "Kemaeko a'lampa?", "titleIndonesian": "Kamu mau pergi ke mana?", "category": "sapaan", "audioFile": "/audio/bacaan/l1_06.mp3", "stanzas": [{"lontara": "ᨀᨙᨆᨕᨙᨀᨚ ᨕᨒᨅ", "makassar": "Kemaeko a'lampa?", "indonesian": "Kamu mau pergi ke mana?"}]}, {"id": "l1-07", "level": 1, "code": "L1-07", "titleLontara": "ᨕᨒᨅᨕ ᨑᨗ ᨔᨗᨀᨚᨒᨐ", "titleMakassar": "A'lampa' ri sikolaya.", "titleIndonesian": "Saya pergi ke sekolah.", "category": "sapaan", "audioFile": "/audio/bacaan/l1_07.mp3", "stanzas": [{"lontara": "ᨕᨒᨅᨕ ᨑᨗ ᨔᨗᨀᨚᨒᨐ", "makassar": "A'lampa' ri sikolaya.", "indonesian": "Saya pergi ke sekolah."}]}, {"id": "l1-08", "level": 1, "code": "L1-08", "titleLontara": "ᨈᨑᨗᨆ ᨀᨔᨗ ᨉᨕᨙ", "titleMakassar": "Tarima kasi' Daeng.", "titleIndonesian": "Terima kasih, Kakak/Daeng.", "category": "sapaan", "audioFile": "/audio/bacaan/l1_08.mp3", "stanzas": [{"lontara": "ᨈᨑᨗᨆ ᨀᨔᨗ ᨉᨕᨙ", "makassar": "Tarima kasi' Daeng.", "indonesian": "Terima kasih, Kakak/Daeng."}]}, {"id": "l2-01", "level": 2, "titleLontara": "ᨅᨑᨗᨅᨔ ᨑᨗ ᨅᨒ", "titleMakassar": "Bari'basa' ri Balla'", "titleIndonesian": "Pagi Hari di Rumah", "category": "cerita", "audioFile": "/audio/bacaan/l2_cerita1.mp3", "culturalNote": "Menggambarkan kebiasaan anak berbakti dan rajin di rumah sebelum berangkat ke sekolah.", "stanzas": [{"lontara": "ᨔᨗ ᨅᨌᨚ ᨕᨅᨈᨘ ᨅᨑᨗᨅᨔ ᨉᨘᨉᨘ. ᨕᨈᨘᨑᨘᨊ ᨑᨗ ᨍᨙᨊᨙᨀᨕ ᨕᨍᨙᨊᨙ.", "makassar": "Si Baco ambangung bari'basa' dudu. Antama'mi ri je'nekanga a'je'ne'.", "indonesian": "Si Baco bangun pagi-pagi sekali. Ia masuk ke kamar mandi untuk mandi."}, {"lontara": "ᨒᨙᨅᨀᨗ ᨕᨍᨙᨊᨙ, ᨕᨂᨉᨑᨙᨆᨗ ᨔᨗᨅᨓ ᨕᨆᨊ ᨔᨗᨅᨓ ᨕᨅᨄᨊ.", "makassar": "Le'baki a'je'ne', angngandremi siagang amma'na siagang bapa'na.", "indonesian": "Selesai mandi, ia makan bersama ibu dan ayahnya."}, {"lontara": "ᨔᨗ ᨅᨌᨚ ᨕᨊ ᨌᨑᨉᨙ, ᨈᨙᨊ ᨊᨀᨘᨈᨘ ᨕᨒᨅ ᨑᨗ ᨔᨗᨀᨚᨒᨐ.", "makassar": "Si Baco ana' caradde', tena nakuttu a'lampa ri sikolaya.", "indonesian": "Si Baco anak yang rajin/pintar, ia tidak malas pergi ke sekolah."}]}, {"id": "l2-02", "level": 2, "titleLontara": "ᨕᨒᨅ ᨑᨗ ᨄᨔᨑᨀ", "titleMakassar": "A'lampa ri Pasaraka", "titleIndonesian": "Pergi ke Pasar", "category": "cerita", "audioFile": "/audio/bacaan/l2_cerita2.mp3", "culturalNote": "Mengenalkan suasana pasar tradisional dan sikap tolong-menolong anak kepada orang tua.", "stanzas": [{"lontara": "ᨅᨑᨗᨅᨔᨕ, ᨔᨗ ᨅᨙᨌᨙ ᨕᨒᨅ ᨑᨗ ᨄᨔᨑᨀ ᨔᨗᨅᨓ ᨕᨆᨊ.", "makassar": "Bari'basaka, si Becce' a'lampa ri pasaraka siagang amma'na.", "indonesian": "Pada pagi hari, si Becce pergi ke pasar bersama ibunya."}, {"lontara": "ᨕᨆᨊ ᨕᨅᨒᨗ ᨍᨘᨀᨘ ᨔᨗᨅᨓ ᨁᨂᨊ.", "makassar": "Amma'na ammalli juku' siagang gangang.", "indonesian": "Ibunya membeli ikan dan sayur-mayur."}, {"lontara": "ᨔᨗ ᨅᨙᨌᨙ ᨑᨊᨘ ᨉᨘᨉᨘ ᨕᨅᨈᨘᨗ ᨕᨆᨊ ᨕᨙᨑᨂ ᨅᨑ ᨅᨒᨗᨕ.", "makassar": "Si Becce' rannu dudu ambantui amma'na angngerang barang balliang.", "indonesian": "Si Becce sangat senang membantu ibunya membawakan barang belanjaan."}]}, {"id": "l3-01", "level": 3, "titleLontara": "ᨈᨙᨕᨀᨚ ᨀᨘᨈᨘ ᨕᨅᨚᨐ ᨕᨗᨒᨆᨘ", "titleMakassar": "Kelong Menuntut Ilmu (Boya Ilmu)", "titleIndonesian": "Pesan Leluhur untuk Gigih Mencari Ilmu", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi1.mp3", "culturalNote": "Kelong bertema pentingnya bekal ilmu pengetahuan bagi masa depan pemuda Makassar.", "stanzas": [{"lontara": "ᨈᨙᨕᨀᨚ ᨀᨘᨈᨘ ᨕᨅᨚᨐ\nᨕᨗᨒᨆᨘ ᨑᨗ ᨒᨗᨊᨚᨕ\nᨅᨚᨀᨚᨒᨚ ᨑᨗ ᨀᨒᨙᨊᨘ\nᨔᨒᨚ ᨊᨀᨚ ᨌᨑᨉᨙ", "makassar": "Teako kuttu a'boya / Ilmu ri linoa / Bokolo' ri kalennu / Sallo nako caradde'", "indonesian": "Janganlah engkau malas mencari / Ilmu di dunia ini / Sebagai bekal bagi dirimu / Kelak engkau akan menjadi pandai."}]}, {"id": "l3-02", "level": 3, "titleLontara": "ᨑᨙᨔᨚᨄ ᨊᨈᨗᨊᨘᨒᨘ", "titleMakassar": "Kelong Kerja Keras & Ketekunan (Resopa Natemmangingngi)", "titleIndonesian": "Filosofi Kerja Keras & Doa", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi2.mp3", "culturalNote": "Falsafah hidup bahwa tiada hasil yang diraih tanpa keringat dan ketekunan.", "stanzas": [{"lontara": "ᨐ ᨈᨙᨊ ᨊᨔᨑᨙ ᨅᨍᨗ\nᨄᨘᨊ ᨈᨙᨊ ᨊᨑᨙᨔᨚ\nᨔᨚᨂᨚ ᨈᨗᨈᨗᨊ ᨑᨗ ᨒᨗᨊᨚ\nᨑᨙᨔᨚᨄ ᨊᨈᨗᨊᨘᨒᨘ", "makassar": "Ia tena nasare baji' / Punna tena nareso / Songgo' titina ri lino / Resopa natinulu", "indonesian": "Tiada keberuntungan yang datang begitu saja / Jika seseorang tidak bekerja keras / Keringat yang menetes di dunia / Hanya dengan kerja keras dan ketekunanlah cita-cita tercapai."}]}, {"id": "l3-03", "level": 3, "titleLontara": "ᨔᨗᨑᨗᨀᨘ ᨊ ᨄᨌᨙᨀᨘ", "titleMakassar": "Puisi Siri' na Pacce", "titleIndonesian": "Harga Diri & Solidaritas Kemanusiaan", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi3.mp3", "culturalNote": "Pilar moral tertinggi masyarakat Makassar: Siri' (harga diri) dan Pacce (empati/kepedulian).", "stanzas": [{"lontara": "ᨔᨗᨑᨗᨀᨘ ᨊ ᨄᨌᨙᨀᨘ\nᨕᨊᨍᨑᨗ ᨅᨙᨈᨙ ᨑᨗ ᨕᨈᨗ\nᨒᨅᨘᨔᨘ ᨑᨗ ᨀᨊ ᨀᨊ\nᨍᨑᨙ ᨑᨗ ᨄᨁᨕᨘᨀ", "makassar": "Siri'ku na pacceku / A'jari benteng ri ati / Lambusu' ri kana-kana / Jare' ri panggaukang", "indonesian": "Rasa malu (harga diri) dan kepedulianku / Menjadi benteng di dalam hati / Lurus dan jujur dalam bertutur kata / Teguh dan dapat dipercaya dalam perbuatan."}]}, {"id": "l3-04", "level": 3, "titleLontara": "ᨀᨆᨔᨙᨕ ᨕᨆ", "titleMakassar": "Kamaseang Amma'", "titleIndonesian": "Kasih Sayang Ibu", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi4.mp3", "culturalNote": "Ungkapan rasa syukur dan baktinya seorang anak kepada ibunda tercinta.", "stanzas": [{"lontara": "ᨕᨚ ᨕᨆ ᨀᨆᨔᨙᨕᨀᨘ\nᨒᨚᨄᨚ ᨉᨘᨉᨘ ᨄᨂᨆᨔᨙᨊᨘ\nᨅᨈᨘ ᨑᨗ ᨌᨉᨗᨀᨘ\nᨔᨒᨚ ᨊᨀᨘ ᨒᨚᨄᨚ ᨀᨆ", "makassar": "O Amma' kamaseangku / Lompo dudu pangngamaseangnu / Battu ri ca'diku / Sallo naku lompo kamma", "indonesian": "Wahai Ibu kesayanganku / Begitu besar kasih sayangmu / Sejak aku masih kecil / Hingga aku tumbuh besar seperti sekarang."}]}, {"id": "l3-05", "level": 3, "titleLontara": "ᨈᨘᨊ ᨑᨗ ᨀᨒᨙ", "titleMakassar": "Tuna ri Kale", "titleIndonesian": "Kerendahan Hati", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi5.mp3", "culturalNote": "Kelong yang mengingatkan manusia agar tidak menyombongkan diri dalam hidup.", "stanzas": [{"lontara": "ᨆᨊᨘ ᨈᨗᨂᨗ ᨑᨗ ᨕᨓᨂ\nᨈᨘᨑᨘ ᨈᨚᨍᨗ ᨑᨗ ᨅᨘᨈᨐ\nᨈᨙᨕᨀᨚ ᨈᨀᨅᨚᨑᨚ\nᨒᨗᨊᨚᨕ ᨄᨆᨑᨗ ᨆᨑᨗᨍᨗ", "makassar": "Manu' tinggi ri awanga / Turung tonji ri buttaya / Teako takabboro' / Linoa pammari-mariji", "indonesian": "Burung yang terbang tinggi di angkasa / Pasti akan turun juga ke tanah / Janganlah engkau menyombongkan diri / Dunia ini hanyalah tempat persinggahan sementara."}]}, {"id": "l3-06", "level": 3, "titleLontara": "ᨔᨚᨅᨒᨑᨗ ᨄᨗᨊᨗᨔᨗᨀᨘ", "titleMakassar": "Sombalangi Phinisiku", "titleIndonesian": "Pelaut Tangguh & Rindu Tanah Makassar", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi6.mp3", "culturalNote": "Jiwa bahari para pelaut perahu Phinisi yang mengarungi samudra tanpa lupa tanah air.", "stanzas": [{"lontara": "ᨔᨚᨅᨒᨑᨗ ᨄᨗᨊᨗᨔᨗᨀᨘ\nᨕᨒᨙᨈᨙ ᨅᨚᨅ ᨒᨚᨄᨚ\nᨆᨊ ᨆᨆᨚ ᨀᨘᨅᨙᨒ ᨉᨘᨉᨘ\nᨅᨘᨈ ᨆᨀᨔᨑ ᨈᨙᨊ ᨀᨘᨀᨒᨘᨄᨕᨗ", "makassar": "Sombalangi Phinisiku / A'lete bombang lompo / Manna mamo kubela dudu / Butta Mangkasara' tena kukaluppai", "indonesian": "Berlayarlah perahu Phinisiku / Meniti ombak yang besar / Walaupun aku berada sangat jauh di rantau / Tanah Makassar tidak akan pernah kulupakan."}]}, {"id": "l3-07", "level": 3, "titleLontara": "ᨔᨗᨄᨀᨈᨕᨘ ᨔᨗᨄᨀᨒᨅᨗ", "titleMakassar": "Sipakatau Sipakalabbi'", "titleIndonesian": "Persaudaraan & Saling Memuliakan", "category": "puisi", "audioFile": "/audio/bacaan/l3_puisi7.mp3", "culturalNote": "Prinsip dasar tata krama: saling memanusiakan (sipakatau) dan saling memuliakan (sipakalabbi).", "stanzas": [{"lontara": "ᨔᨗᨄᨀᨈᨕᨘ ᨑᨗ ᨒᨗᨊᨚ\nᨔᨗᨄᨀᨒᨅᨗ ᨔᨗᨅᨓ ᨔᨑᨗᨅᨈᨂ\nᨈᨙᨕᨀᨚ ᨔᨗᨅᨚᨐ ᨔᨒ\nᨅᨍᨗᨀᨂ ᨑᨗ ᨄᨑᨙ ᨊᨗᨈᨘᨍᨘ", "makassar": "Sipakatau ri lino / Sipakalabbi' siagang sari'battang / Teako siboya sala / Bajikanga ri pare' nituju", "indonesian": "Saling memanusiakanlah di dunia / Saling memuliakan bersama saudara / Jangan saling mencari kesalahan / Kebaikan bersama yang kita jadikan tujuan."}]}, {"id": "l4-angngaru", "level": 4, "titleLontara": "ᨕᨂᨑᨘ (ᨔᨘᨄ ᨔᨙᨈᨗᨕ)", "titleMakassar": "Naskah Lengkap: ANGNGARU", "titleIndonesian": "Ikrar Sumpah Setia Prajurit Gowa-Makassar kepada Sang Raja", "category": "angngaru", "audioFile": "/audio/bacaan/l4_angngaru.mp3", "culturalNote": "Naskah sakral deklamasi keprajuritan yang diikrarkan dengan penuh ketegasan di hadapan Raja Gowa sambil menghunus badik.", "stanzas": [{"lontara": "ᨈᨅᨙ ᨀᨑᨕᨙᨀᨘ...\nᨈᨘ ᨆᨅᨘᨈ ᨆᨀᨔᨑ\nᨈᨘ ᨊᨗᨔᨚᨅᨐ ᨑᨗ ᨁᨚᨓ", "makassar": "Tabe' Karaengku...\nTu ma'butta Mangkasara'\nTu nisombaya ri Gowa", "indonesian": "Ampun beribu ampun wahai Rajaku...\nPenguasa tanah Makassar\nYang dipertuan dan dijunjung tinggi di Gowa (Bait 1: Penghormatan)"}, {"lontara": "ᨕᨗᨊᨀᨙ ᨆᨗᨊᨙ ᨕᨈ\nᨀᨗᨈ ᨆᨗᨊᨙ ᨀᨑᨕᨙ\nᨄᨘᨊ ᨔᨒᨚ ᨊᨗᨕ ᨄᨘᨑᨗᨊ ᨕᨂᨗ\nᨕᨗᨊᨀᨙ ᨑᨗᨚᨒᨚ ᨕᨈᨅ ᨑᨗ ᨅᨚᨀᨚ", "makassar": "Inakke minne ata\nKatte minne Karaeng\nPunna sallo nia' purina anging\nInakke riolo attaba ri boko", "indonesian": "Akulah ini hamba sahaya\nEngkaulah ini Sang Raja\nJika kelak datang badai ancaman menghadang\nAkulah yang berdiri paling depan menjadi perisai sebelum mengenaimu (Bait 2: Ikrar Kesetiaan)"}, {"lontara": "ᨅᨍᨗ ᨆᨒᨚᨒᨚ ᨌᨙᨑᨕᨀᨘ\nᨊ ᨈᨙᨊ ᨀᨘ ᨕᨒᨙᨔᨙ ᨑᨗ ᨄᨔᨗᨍᨍᨗᨀ!", "makassar": "Baji' malolo cera'ku\nNa tena ku allese ri pasijanjikang!", "indonesian": "Lebih baik mengalir merah darahku\nDaripada aku mundur selangkah dari janji kesetiaan! (Bait 3: Sumpah Darah)"}]}, {"id": "l4-pakarena", "level": 4, "titleLontara": "ᨄᨀᨑᨙᨊ", "titleMakassar": "Pakarena", "titleIndonesian": "Lagu Tari Tradisional yang Mulia & Lembut", "category": "lagu", "audioFile": "/audio/bacaan/l4_pakarena.mp3", "culturalNote": "Lagu pengiring tari Pakarena yang menggambarkan kelembutan dan keluhuran budi pekerti wanita Makassar.", "stanzas": [{"lontara": "ᨕᨗᨀᨈᨙ ᨑᨗ ᨈᨘᨑᨈᨙᨕ ᨅᨕᨘ, ᨕᨉᨈ ᨆᨑᨗᨚᨒᨚᨕ, ᨔᨐᨘ ᨕᨙ... ᨄᨀᨑᨙᨊ ᨒᨅᨗᨑᨗᨊ ᨅᨕᨘ, ᨐ ᨉᨙᨉᨙ ᨉᨙᨉᨙ...", "makassar": "Ikatte ri Turatea bau, adatta marioloa, sayang e... Pakarena la'birina bau, ya dende dende...", "indonesian": "Kita masyarakat di Makassar, adat kita sejak dahulu kala... Tari Pakarena yang mulia dan lembut..."}, {"lontara": "ᨆᨅᨍᨗ ᨀᨊ ᨑᨗ ᨄᨀᨑᨆᨘᨒ, ᨅᨍᨗ ᨀᨊ ᨑᨗ ᨄᨀᨈᨘᨈᨘ", "makassar": "Ma'baji' kana ri pakaramula, baji' kana ri pakatuttu'", "indonesian": "Bertutur kata yang baik sejak awal hingga akhir."}]}, {"id": "l4-angin-mammiri", "level": 4, "titleLontara": "ᨕᨂᨗ ᨆᨆᨗᨑᨗ", "titleMakassar": "Angin Mammiri", "titleIndonesian": "Semilir Angin Penyampai Pesan Rindu", "category": "lagu", "audioFile": "/audio/bacaan/l4_angin_mammiri.mp3", "culturalNote": "Lagu daerah paling legendaris dari Makassar yang menitipkan salam rindu lewat hembusan angin sepoi-sepoi.", "stanzas": [{"lontara": "ᨕᨂᨗ ᨆᨆᨗᨑᨗ ᨀᨘᨄᨔᨘ... ᨄᨗᨈᨘᨍᨘᨗ ᨈᨚᨈᨚᨂᨊ...", "makassar": "Anging mammiri kupasang... Pitujui tontonganna...", "indonesian": "Wahai angin semilir kutitipkan pesan... Hembuskanlah melalui jendelanya..."}, {"lontara": "ᨈᨘᨔᨑᨚᨕ ᨈᨀᨒᨘᨄ, ᨅᨈᨂ ᨈᨀᨒᨘᨄ... ᨕᨙ ᨕᨕᨘᨒᨙ... ᨊᨆᨂᨘᨑᨙᨊᨗ ᨈᨘᨈᨘ ᨆᨈᨊ...", "makassar": "Tusarroa takkaluppa, batangnga takkaluppa... E aule... Namangngu'rangi tutu matanna...", "indonesian": "Kepada seseorang yang mulai pelupa... Agar ia kembali teringat saat memejamkan mata."}]}, {"id": "l4-anak-kukang", "level": 4, "titleLontara": "ᨕᨊ ᨀᨘᨀ", "titleMakassar": "Anak Kukang", "titleIndonesian": "Ratapan Anak Yatim Piatu", "category": "lagu", "audioFile": "/audio/bacaan/l4_anak_kukang.mp3", "culturalNote": "Lagu yang sarat nuansa melankolis tentang ketabahan seorang anak yatim piatu yang berjuang sendiri.", "stanzas": [{"lontara": "ᨀᨘᨀᨂ ᨈᨘᨊᨗᨀᨆᨔᨙ... ᨕᨊ ᨀᨘᨀᨂ ᨀᨚᨉᨚᨂ...", "makassar": "Kukang tunikamase... Ana' kukang kodong...", "indonesian": "Anak yatim piatu yang dikasihani... Duhai anak yang malang..."}, {"lontara": "ᨈᨙᨊ ᨕᨆᨊ, ᨈᨙᨊ ᨅᨄᨊ, ᨕᨔᨑᨙ ᨑᨗ ᨀᨒᨙ ᨀᨒᨙ...", "makassar": "Tena amma'na, tena bapa'na, assare ri kale-kale...", "indonesian": "Tiada lagi ibunya, tiada lagi ayahnya, menjalani hidup seorang diri..."}]}, {"id": "l4-marencong-rencong", "level": 4, "titleLontara": "ᨆᨑᨙᨌᨚ ᨑᨙᨌᨚ", "titleMakassar": "Ma'rencong-rencong", "titleIndonesian": "Nyanyian Riang Kepulangan Perantau", "category": "lagu", "audioFile": "/audio/bacaan/l4_marencong_rencong.mp3", "culturalNote": "Lagu berirama gembira menyambut kepulangan perantau bahari Makassar dengan membawa hasil yang melimpah.", "stanzas": [{"lontara": "ᨅᨈᨘ ᨑᨈᨘᨆᨕ ᨑᨗ ᨅᨘᨈ ᨍᨓ... ᨆᨑᨙᨌᨚ ᨑᨙᨌᨚ...", "makassar": "Battu ratuma' ri butta Jawa... Ma'rencong-rencong...", "indonesian": "Aku baru saja kembali berlayar dari tanah seberang... Dengan hati riang gembira..."}, {"lontara": "ᨕᨅᨚᨐ ᨅᨑ ᨑᨗ ᨅᨘᨈ ᨆᨀᨔᨑ...", "makassar": "A'boya barang ri butta Mangkasara'...", "indonesian": "Membawa hasil usaha kembali ke tanah Makassar..."}]}];
+
+    let currentReadingLevel = 1;
+    let activeReadingItem = BACAAN_DATA[0];
+    let readingShowLatin = true;
+    let readingShowIndo = true;
+
+    const READING_LEVEL_CONFIG = [
+      { level: 1, title: 'Level 1: Pemula', subtitle: '8 Kalimat & Sapaan Pendek' },
+      { level: 2, title: 'Level 2: Menengah', subtitle: '2 Cerita Kehidupan Harian' },
+      { level: 3, title: 'Level 3: Mahir', subtitle: '7 Puisi & Kelong Falsafah' },
+      { level: 4, title: 'Level 4: Sastra Agung', subtitle: 'Angngaru & 4 Lagu Daerah' }
+    ];
+
+    function renderReadingTabs() {
+      const container = document.getElementById('reading-level-tabs');
+      if (!container) return;
+
+      container.innerHTML = READING_LEVEL_CONFIG.map(tab => {
+        const isActive = tab.level === currentReadingLevel;
+        return `
+          <button onclick="switchReadingLevel(${tab.level})" class="p-3.5 sm:p-4 rounded-2xl border-2 transition-all duration-200 text-left relative ${
+            isActive
+              ? 'bg-eja border-bulaeng text-white shadow-md'
+              : 'bg-salaka-light border-salaka-border/80 text-leleng hover:border-bulaeng/60 hover:bg-white'
+          }">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs sm:text-sm font-black ${isActive ? 'text-white' : 'text-leleng'}">${tab.title}</span>
+              ${isActive ? '<span class="w-2 h-2 rounded-full bg-bulaeng animate-ping"></span>' : ''}
+            </div>
+            <p class="text-[11px] font-medium leading-tight ${isActive ? 'text-white/80' : 'text-leleng-slate'}">${tab.subtitle}</p>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderReadingSidebar() {
+      const container = document.getElementById('reading-sidebar-container');
+      if (!container) return;
+
+      const levelItems = BACAAN_DATA.filter(item => item.level === currentReadingLevel);
+
+      let headerIcon = '📖';
+      if (currentReadingLevel === 2) headerIcon = '🪶';
+      if (currentReadingLevel === 3) headerIcon = '✨';
+      if (currentReadingLevel === 4) headerIcon = '🛡️';
+
+      let itemsHtml = levelItems.map(item => {
+        const isSelected = item.id === activeReadingItem.id;
+
+        let badge = `<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-salaka-border text-leleng-slate uppercase">${item.code}</span>`;
+        if (item.category === 'angngaru') {
+          badge = `<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-eja/15 text-eja border border-eja/30 uppercase">🛡️ Sumpah Setia</span>`;
+        } else if (item.category === 'lagu') {
+          badge = `<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-bulaeng/20 text-bulaeng-dark border border-bulaeng/40 uppercase">🎵 Lagu Daerah</span>`;
+        } else if (item.category === 'kelong' || item.category === 'puisi') {
+          badge = `<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 uppercase">✨ Sastra / Kelong</span>`;
+        } else if (item.category === 'cerita') {
+          badge = `<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 uppercase">🪶 Cerita Harian</span>`;
+        }
+
+        return `
+          <button onclick="selectReadingItemById('${item.id}')" class="w-full text-left p-3.5 rounded-2xl transition-all duration-200 relative border ${
+            isSelected
+              ? 'bg-lontar-cream border-bulaeng shadow-md border-l-4 border-l-eja'
+              : 'bg-white/70 border-salaka-border/70 hover:bg-salaka-light hover:border-bulaeng/50'
+          }">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              ${badge}
+              <span class="text-[10px] font-medium text-leleng-slate">
+                ${item.stanzas.length} ${item.stanzas.length > 1 ? 'Bait' : 'Baris'}
+              </span>
+            </div>
+            ${item.titleLontara ? `<div class="font-lontara text-lg sm:text-xl text-ink-navy truncate leading-tight mb-1">${item.titleLontara}</div>` : ''}
+            <div class="text-sm font-bold truncate ${isSelected ? 'text-eja' : 'text-leleng'}">${item.titleMakassar}</div>
+            <div class="text-xs text-leleng-slate truncate mt-0.5 italic">${item.titleIndonesian}</div>
+          </button>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-salaka-border px-2">
+          <div class="flex items-center gap-2">
+            <span>${headerIcon}</span>
+            <span class="text-xs font-black uppercase tracking-wider text-leleng">
+              Daftar Materi (${levelItems.length} Naskah)
+            </span>
+          </div>
+          <span class="text-[11px] font-bold text-bulaeng-dark bg-bulaeng/10 px-2.5 py-0.5 rounded-full border border-bulaeng/30">
+            Level ${currentReadingLevel}
+          </span>
+        </div>
+        <div class="overflow-y-auto pr-1 space-y-2.5 custom-scrollbar max-h-[720px]">
+          ${itemsHtml}
+        </div>
+      `;
+    }
+
+    function renderReadingCanvas() {
+      const container = document.getElementById('reading-canvas-container');
+      if (!container || !activeReadingItem) return;
+
+      const item = activeReadingItem;
+      const fullMakassarText = item.stanzas.map(s => s.makassar).join('. ');
+
+      // Catatan Budaya
+      let culturalNoteHtml = '';
+      if (item.category === 'angngaru') {
+        culturalNoteHtml = `
+          <div class="mt-8 pt-5 border-t border-bulaeng/40 bg-salaka-light/60 p-4 rounded-2xl border border-salaka-border">
+            <div class="flex items-center gap-2 mb-1.5 font-black text-xs uppercase tracking-wider text-leleng">
+              <span>🛡️</span>
+              <span>Konteks Sakral Angngaru</span>
+            </div>
+            <p class="text-xs sm:text-sm text-leleng-body leading-relaxed">
+              Angngaru adalah ikrar sumpah setia sejati prajurit Tubarani kepada Raja Gowa (Sombaya) yang diucapkan dengan hunusan badik pusaka bergetar, menjanjikan pengorbanan jiwa dan raga demi kehormatan tanah Makassar.
+            </p>
+          </div>
+        `;
+      } else if (item.id === 'l4-02') {
+        culturalNoteHtml = `
+          <div class="mt-8 pt-5 border-t border-bulaeng/40 bg-salaka-light/60 p-4 rounded-2xl border border-salaka-border">
+            <div class="flex items-center gap-2 mb-1.5 font-black text-xs uppercase tracking-wider text-leleng">
+              <span>🎵</span>
+              <span>Makna Tari & Lagu Pakarena</span>
+            </div>
+            <p class="text-xs sm:text-sm text-leleng-body leading-relaxed">
+              Menggambarkan kelembutan, ketabahan, dan kesantunan perempuan Makassar yang bergerak anggun dengan kipas diiringi tabuhan gendang menggelegar.
+            </p>
+          </div>
+        `;
+      } else if (item.id === 'l4-03') {
+        culturalNoteHtml = `
+          <div class="mt-8 pt-5 border-t border-bulaeng/40 bg-salaka-light/60 p-4 rounded-2xl border border-salaka-border">
+            <div class="flex items-center gap-2 mb-1.5 font-black text-xs uppercase tracking-wider text-leleng">
+              <span>🎵</span>
+              <span>Legenda Angin Mammiri</span>
+            </div>
+            <p class="text-xs sm:text-sm text-leleng-body leading-relaxed">
+              Lagu legendaris karya Bora Dg. Irate yang mengamanatkan hembusan angin sepoi-sepoi untuk menyampaikan salam rindu kepada sang kekasih pujaan hati.
+            </p>
+          </div>
+        `;
+      } else if (item.id === 'l3-03') {
+        culturalNoteHtml = `
+          <div class="mt-8 pt-5 border-t border-bulaeng/40 bg-salaka-light/60 p-4 rounded-2xl border border-salaka-border">
+            <div class="flex items-center gap-2 mb-1.5 font-black text-xs uppercase tracking-wider text-leleng">
+              <span>✨</span>
+              <span>Falsafah Siri' na Pacce</span>
+            </div>
+            <p class="text-xs sm:text-sm text-leleng-body leading-relaxed">
+              Siri' (harga diri/martabat) dan Pacce (solidaritas empati kemanusiaan) merupakan fondasi moral tertinggi kepribadian masyarakat Bugis-Makassar.
+            </p>
+          </div>
+        `;
+      }
+
+      // Stanzas
+      const stanzasHtml = item.stanzas.map((stanza, idx) => `
+        <div class="p-5 sm:p-6 rounded-2xl bg-white/70 border ${readingAudioPlaying ? 'border-bulaeng border-2 shadow-card-gold animate-pulse' : 'border-salaka-border hover:border-bulaeng/60'} transition-all shadow-sm">
+          ${item.stanzas.length > 1 ? `
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-salaka-border/60">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-bulaeng-dark">Bait ${idx + 1}</span>
+              <span class="text-[10px] text-leleng-slate">${idx + 1} dari ${item.stanzas.length}</span>
+            </div>
+          ` : ''}
+          
+          <!-- Baris 1: Aksara Lontara Navy -->
+          <div class="font-lontara text-2xl sm:text-3xl text-ink-navy leading-loose tracking-wide mb-3">
+            ${stanza.lontara}
+          </div>
+
+          <!-- Baris 2: Latin Makassar (Toggle) -->
+          ${readingShowLatin ? `
+            <div class="text-base sm:text-lg font-bold text-leleng mb-2 border-t border-salaka-border/60 pt-2.5">
+              ${stanza.makassar}
+            </div>
+          ` : ''}
+
+          <!-- Baris 3: Arti Indonesia (Toggle) -->
+          ${readingShowIndo ? `
+            <div class="text-sm sm:text-base italic text-leleng-body leading-relaxed">
+              ${stanza.indonesian}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="bg-lontar-cream border-2 border-bulaeng/60 rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden flex flex-col justify-between">
+          <!-- Pita Ornamen Lamming Atas -->
+          <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-eja via-bulaeng to-eja"></div>
+
+          <div>
+            <!-- Header Judul -->
+            <div class="text-center pb-6 mb-8 border-b border-bulaeng/40 relative">
+              <div class="sm:absolute sm:right-0 sm:top-0 mb-4 sm:mb-0 flex justify-center">
+                <button onclick="triggerSpeech('${item.titleMakassar}. ${fullMakassarText.replace(/'/g, "\\'")}')" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all shadow-sm bg-salaka-light text-leleng hover:bg-eja hover:text-white border border-bulaeng/40">
+                  <span>🔊</span>
+                  <span>Dengarkan Bacaan</span>
+                </button>
+              </div>
+
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-salaka-light border border-bulaeng/40 text-[11px] font-bold text-leleng-slate mb-3">
+                <span>🔖 Naskah ${item.code} &bull; Level ${item.level}</span>
+              </div>
+
+              ${item.titleLontara ? `<h2 class="font-lontara text-4xl sm:text-5xl text-eja mb-2 leading-tight">${item.titleLontara}</h2>` : ''}
+              <h3 class="text-2xl sm:text-3xl font-black text-leleng tracking-tight">${item.titleMakassar}</h3>
+              <p class="text-sm font-semibold text-bulaeng-dark mt-1 italic">"${item.titleIndonesian}"</p>
+            </div>
+
+            <!-- Stanzas -->
+            <div class="space-y-6 sm:space-y-8">
+              ${stanzasHtml}
+            </div>
+          </div>
+
+          <!-- Catatan Budaya -->
+          ${culturalNoteHtml}
+        </div>
+      `;
+    }
+
+    function switchReadingLevel(lvl) {
+      currentReadingLevel = lvl;
+      const firstItem = BACAAN_DATA.find(item => item.level === lvl);
+      if (firstItem) {
+        activeReadingItem = firstItem;
+      }
+      renderReadingTabs();
+      renderReadingSidebar();
+      renderReadingCanvas();
+    }
+
+    function selectReadingItemById(id) {
+      const found = BACAAN_DATA.find(item => item.id === id);
+      if (found) {
+        activeReadingItem = found;
+        renderReadingSidebar();
+        renderReadingCanvas();
+      }
+    }
+
+    let readingAudioPlaying = false;
+
+    // Load preferensi localStorage
+    try {
+      const savedLatin = localStorage.getItem('lontaraku_show_latin');
+      if (savedLatin !== null) readingShowLatin = (savedLatin === 'true');
+      const savedIndo = localStorage.getItem('lontaraku_show_indo');
+      if (savedIndo !== null) readingShowIndo = (savedIndo === 'true');
+    } catch (e) {}
+
+    function updateReadingControlButtonsUI() {
+      const btnLatin = document.getElementById('btn-toggle-latin');
+      const labelLatin = document.getElementById('label-toggle-latin');
+      if (btnLatin && labelLatin) {
+        if (readingShowLatin) {
+          btnLatin.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-ink-navy text-white border-ink-navy shadow-sm';
+          labelLatin.innerText = '(Aktif)';
+        } else {
+          btnLatin.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-white/80 text-leleng-slate border-salaka-border hover:bg-salaka-base';
+          labelLatin.innerText = '(Off)';
+        }
+      }
+
+      const btnIndo = document.getElementById('btn-toggle-indo');
+      const labelIndo = document.getElementById('label-toggle-indo');
+      if (btnIndo && labelIndo) {
+        if (readingShowIndo) {
+          btnIndo.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-bulaeng-dark text-white border-bulaeng-dark shadow-sm';
+          labelIndo.innerText = '(Aktif)';
+        } else {
+          btnIndo.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border bg-white/80 text-leleng-slate border-salaka-border hover:bg-salaka-base';
+          labelIndo.innerText = '(Off)';
+        }
+      }
+
+      // Mode Murni Lontara Button UI
+      const btnPure = document.getElementById('btn-toggle-pure-lontara');
+      const labelPure = document.getElementById('label-pure-lontara');
+      if (btnPure && labelPure) {
+        const isPure = !readingShowLatin && !readingShowIndo;
+        if (isPure) {
+          btnPure.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black transition-all border bg-eja text-white border-bulaeng shadow-md animate-pulse';
+          labelPure.innerText = 'Keluar Mode Murni';
+        } else {
+          btnPure.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black transition-all border bg-salaka-base/80 text-leleng border-salaka-border hover:border-eja/50';
+          labelPure.innerText = 'Mode Murni Lontara';
+        }
+      }
+
+      // Audio Button UI
+      const btnAudio = document.getElementById('btn-reading-audio');
+      const iconAudio = document.getElementById('audio-reading-icon');
+      const labelAudio = document.getElementById('label-reading-audio');
+      if (btnAudio && labelAudio && iconAudio) {
+        if (readingAudioPlaying) {
+          btnAudio.className = 'w-full md:w-auto flex items-center justify-center gap-2 px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md bg-bulaeng text-white hover:bg-bulaeng-dark animate-pulse border border-white/40';
+          iconAudio.innerText = '⏸️';
+          labelAudio.innerText = 'Jeda Suara';
+        } else {
+          btnAudio.className = 'w-full md:w-auto flex items-center justify-center gap-2 px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md bg-eja text-white hover:bg-eja-dark border border-bulaeng';
+          iconAudio.innerText = '🔊';
+          if (activeReadingItem && activeReadingItem.category === 'lagu') {
+            labelAudio.innerText = 'Dengarkan Lagu Daerah';
+          } else if (activeReadingItem && activeReadingItem.category === 'angngaru') {
+            labelAudio.innerText = 'Deklamasi Sumpah Angngaru';
+          } else {
+            labelAudio.innerText = 'Dengarkan Bacaan';
+          }
+        }
+      }
+    }
+
+    function toggleReadingLatin() {
+      readingShowLatin = !readingShowLatin;
+      try { localStorage.setItem('lontaraku_show_latin', String(readingShowLatin)); } catch (e) {}
+      updateReadingControlButtonsUI();
+      renderReadingCanvas();
+    }
+
+    function toggleReadingIndo() {
+      readingShowIndo = !readingShowIndo;
+      try { localStorage.setItem('lontaraku_show_indo', String(readingShowIndo)); } catch (e) {}
+      updateReadingControlButtonsUI();
+      renderReadingCanvas();
+    }
+
+    function togglePureLontaraMode() {
+      const isPure = !readingShowLatin && !readingShowIndo;
+      if (isPure) {
+        readingShowLatin = true;
+        readingShowIndo = true;
+      } else {
+        readingShowLatin = false;
+        readingShowIndo = false;
+      }
+      try {
+        localStorage.setItem('lontaraku_show_latin', String(readingShowLatin));
+        localStorage.setItem('lontaraku_show_indo', String(readingShowIndo));
+      } catch (e) {}
+      updateReadingControlButtonsUI();
+      renderReadingCanvas();
+    }
+
+    function toggleCurrentReadingAudio() {
+      if (!activeReadingItem) return;
+
+      if (readingAudioPlaying) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+        readingAudioPlaying = false;
+        updateReadingControlButtonsUI();
+        renderReadingCanvas();
+      } else {
+        const fullMakassarText = activeReadingItem.stanzas.map(s => s.makassar).join('. ');
+        const spokenText = `${activeReadingItem.titleMakassar}. ${fullMakassarText}`;
+        
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(spokenText);
+          u.lang = 'id-ID';
+          u.rate = 0.85;
+          u.pitch = 1.0;
+          u.onend = function() {
+            readingAudioPlaying = false;
+            updateReadingControlButtonsUI();
+            renderReadingCanvas();
+          };
+          u.onerror = function() {
+            readingAudioPlaying = false;
+            updateReadingControlButtonsUI();
+            renderReadingCanvas();
+          };
+          window.speechSynthesis.speak(u);
+          readingAudioPlaying = true;
+          updateReadingControlButtonsUI();
+          renderReadingCanvas();
+        }
+      }
+    }
+
+    function renderBacaanWorkspace() {
+      renderReadingTabs();
+      renderReadingSidebar();
+      updateReadingControlButtonsUI();
+      renderReadingCanvas();
+    }
+
+    function switchRoute(routeName) {
+      document.querySelectorAll('.route-view').forEach(function(el) {
+        el.classList.add('hidden');
+      });
+
+      var target = document.getElementById('route-' + routeName);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      ['beranda', 'aksara', 'kosakata', 'bacaan'].forEach(function(r) {
+        var btn = document.getElementById('nav-btn-' + r);
+        if (!btn) return;
+        if (r === routeName) {
+          btn.className = "nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-eja bg-eja/8 shadow-sm after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-bulaeng flex items-center gap-2";
+        } else {
+          btn.className = "nav-link relative px-4 py-2 rounded-xl text-sm font-bold text-leleng-slate hover:text-eja hover:bg-salaka-base/60 flex items-center gap-2";
+        }
+      });
+
+      if (routeName === 'aksara') {
+        renderAksaraGrid();
+      } else if (routeName === 'kosakata') {
+        renderVocabSection();
+      } else if (routeName === 'bacaan') {
+        renderBacaanWorkspace();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      var drawer = document.getElementById('mobile-drawer');
+      var hamIcon = document.getElementById('hamburger-icon');
+      var closeIcon = document.getElementById('close-icon');
+      
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        hamIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        hamIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+
+    // Init
+    renderAksaraGrid();
+    renderVocabSection();
+    renderBacaanWorkspace();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="hasanuddinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#F2F4F7" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ejaArmor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#7A0012" />
+    </linearGradient>
+    <linearGradient id="goldPassapu" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8860B" />
+      <stop offset="50%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Latar Belakang Lingkaran Halo Emas -->
+  <circle cx="200" cy="150" r="130" fill="url(#hasanuddinGlow)" />
+  <circle cx="200" cy="150" r="110" stroke="#D4AF37" stroke-width="2" stroke-dasharray="6 4" opacity="0.6" />
+
+  <!-- Siluet Pahlawan Gagah Sultan Hasanuddin (Ayam Jantan Dari Timur) -->
+  <!-- Tubuh Jubah Merah Lamming -->
+  <path d="M140 270 C140 210, 160 190, 200 190 C240 190, 260 210, 260 270 Z" fill="url(#ejaArmor)" />
+  
+  <!-- Selempang Emas Kerajaan Gowa -->
+  <path d="M155 200 L245 270" stroke="url(#goldPassapu)" stroke-width="8" stroke-linecap="round" />
+
+  <!-- Kepala & Wajah -->
+  <circle cx="200" cy="140" r="38" fill="#FCE4D6" />
+
+  <!-- Passapu (Penutup Kepala Khas Makassar Berwarna Emas & Merah) -->
+  <path d="M160 135 C160 95, 240 95, 240 135 Z" fill="url(#ejaArmor)" />
+  <!-- Pucuk Segitiga Passapu Khas -->
+  <polygon points="200,60 185,105 215,105" fill="url(#goldPassapu)" />
+  <polygon points="190,80 180,115 200,115" fill="#C8102E" />
+  <circle cx="200" cy="105" r="5" fill="#FFD700" />
+
+  <!-- Badik Pusaka Gowa (Ikonik di Pinggang) -->
+  <path d="M225 220 L270 240 L265 245 L220 225 Z" fill="#D4AF37" />
+  <circle cx="225" cy="222" r="4" fill="#C8102E" />
+
+  <!-- Teks Lontara & Nama -->
+  <text x="200" y="292" font-family="'Noto Sans Buginese', 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="bold" fill="#1B2A4A" text-anchor="middle">ᨔᨘᨈ ᨖᨔᨊᨘᨉᨗ (Sultan Hasanuddin)</text>
+</svg>
+

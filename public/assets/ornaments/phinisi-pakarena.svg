@@ -1,0 +1,62 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="phinisiGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#F2F4F7" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sailGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </linearGradient>
+    <linearGradient id="boatHull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5C2E0B" />
+      <stop offset="100%" stop-color="#2D1504" />
+    </linearGradient>
+    <linearGradient id="bajuBodo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#7A0012" />
+    </linearGradient>
+  </defs>
+
+  <circle cx="200" cy="150" r="130" fill="url(#phinisiGlow)" />
+  <circle cx="200" cy="150" r="110" stroke="#D4AF37" stroke-width="2" stroke-dasharray="6 4" opacity="0.6" />
+
+  <!-- Ombak Laut Biru-Perak Tenang -->
+  <path d="M50 250 C100 240, 150 255, 200 245 C250 235, 300 250, 350 240 L350 270 L50 270 Z" fill="#E5E9F0" opacity="0.8" />
+  <path d="M60 255 C120 248, 180 258, 240 250 C300 242, 330 252, 340 255" stroke="#1B2A4A" stroke-width="2" opacity="0.4" />
+
+  <!-- Lambung Kapal Phinisi Kiri-Tengah -->
+  <path d="M80 235 C110 248, 210 250, 240 235 L260 215 L70 215 Z" fill="url(#boatHull)" />
+  
+  <!-- 7 Layar Phinisi Emas Megah -->
+  <!-- Tiang Layar Utama -->
+  <line x1="140" y1="215" x2="140" y2="80" stroke="#3A1C06" stroke-width="4" stroke-linecap="round" />
+  <line x1="200" y1="215" x2="200" y2="95" stroke="#3A1C06" stroke-width="3" stroke-linecap="round" />
+  <line x1="80" y1="215" x2="60" y2="150" stroke="#3A1C06" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Layar Segitiga & Kotak Bulaeng -->
+  <path d="M140 85 C110 110, 105 170, 140 170 Z" fill="url(#sailGold)" opacity="0.95" />
+  <path d="M140 120 C100 145, 95 195, 140 195 Z" fill="url(#sailGold)" opacity="0.9" />
+  <path d="M200 100 C175 125, 170 175, 200 175 Z" fill="url(#sailGold)" opacity="0.95" />
+  <path d="M80 150 C60 170, 60 210, 80 210 Z" fill="#FFD700" opacity="0.85" />
+
+  <!-- Penari Pakarena Anggun Sisi Kanan -->
+  <!-- Tubuh Berbalut Baju Bodo Merah Eja -->
+  <path d="M275 160 C260 180, 255 235, 295 240 C310 235, 305 180, 290 160 Z" fill="url(#bajuBodo)" />
+  
+  <!-- Kepala Penari dengan Konde Khas -->
+  <circle cx="282" cy="145" r="14" fill="#FCE4D6" />
+  <circle cx="282" cy="138" r="12" fill="#111827" />
+  <circle cx="292" cy="138" r="5" fill="#FFD700" /> <!-- Hiasan Konde Emas -->
+
+  <!-- Kipas Tari Emas-Merah di Tangan Kanan -->
+  <path d="M295 165 C325 145, 340 165, 310 190 Z" fill="#FFD700" stroke="#C8102E" stroke-width="2" />
+  <line x1="295" y1="175" x2="315" y2="160" stroke="#C8102E" stroke-width="1.5" />
+  <line x1="295" y1="175" x2="325" y2="170" stroke="#C8102E" stroke-width="1.5" />
+  <line x1="295" y1="175" x2="315" y2="185" stroke="#C8102E" stroke-width="1.5" />
+
+  <!-- Teks Lontara & Nama -->
+  <text x="200" y="290" font-family="'Noto Sans Buginese', 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="bold" fill="#1B2A4A" text-anchor="middle">ᨄᨗᨊᨗᨔᨗ &amp; ᨄᨀᨑᨙᨊ (Phinisi &amp; Pakarena)</text>
+</svg>
+

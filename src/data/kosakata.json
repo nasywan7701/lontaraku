@@ -1,0 +1,171 @@
+[
+  {
+    "id": "kuttu",
+    "category": "Sifat & Sikap",
+    "lontaraScript": "ᨀᨘᨈᨘ",
+    "makassarWord": "Kuttu",
+    "indonesianMeaning": "Malas",
+    "exampleSentence": {
+      "makassar": "Teako kuttu dudui a'boya ilmu.",
+      "indonesian": "Jangan terlalu malas mencari ilmu."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A brown-haired young boy wearing a yellow t-shirt and blue pants is slouching forward with a lazy, reluctant, tired expression. To his right is a window with blue curtains, a small potted green plant, and household cleaning tools: a red broom, a floor mop, and a yellow bucket filled with water. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/kuttu.webp",
+    "soundFile": "/audio/kosakata/kuttu.mp3"
+  },
+  {
+    "id": "caradde",
+    "category": "Sifat & Sikap",
+    "lontaraScript": "ᨌᨑᨉᨙ",
+    "makassarWord": "Caradde'",
+    "indonesianMeaning": "Pintar / Rajin",
+    "exampleSentence": {
+      "makassar": "Anne ana'a salloji na caradde'.",
+      "indonesian": "Anak ini kelak menjadi pintar."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A cheerful young Indonesian girl wearing a neat school uniform sitting at a wooden study desk with a glowing desk lamp, happily reading an open book and raising her hand with a bright smart smile. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/caradde.webp",
+    "soundFile": "/audio/kosakata/caradde.mp3"
+  },
+  {
+    "id": "ngandre",
+    "category": "Kegiatan Harian",
+    "lontaraScript": "ᨂᨉᨑᨙ",
+    "makassarWord": "Ngandre",
+    "indonesianMeaning": "Makan",
+    "exampleSentence": {
+      "makassar": "Mae maki' ngandre Coto.",
+      "indonesian": "Mari kita makan Coto."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A happy young boy sitting at a dining table, holding a spoon and enthusiastically eating a warm bowl of traditional Coto Makassar soup with ketupat rice cakes. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/ngandre.webp",
+    "soundFile": "/audio/kosakata/ngandre.mp3"
+  },
+  {
+    "id": "angnginung",
+    "category": "Kegiatan Harian",
+    "lontaraScript": "ᨕᨚᨊᨘ",
+    "makassarWord": "Angnginung",
+    "indonesianMeaning": "Minum",
+    "exampleSentence": {
+      "makassar": "Angnginungko je'ne' baji'-baji'.",
+      "indonesian": "Minumlah air baik-baik."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A refreshed young boy holding a clear glass of fresh drinking water with both hands, drinking happily near a kitchen counter with a water pitcher. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/angnginung.webp",
+    "soundFile": "/audio/kosakata/angnginung.mp3"
+  },
+  {
+    "id": "tinro",
+    "category": "Kegiatan Harian",
+    "lontaraScript": "ᨈᨗᨊᨑᨚ",
+    "makassarWord": "Tinro",
+    "indonesianMeaning": "Tidur",
+    "exampleSentence": {
+      "makassar": "Wattunami tinro baniang.",
+      "indonesian": "Sudah waktunya tidur malam."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A young boy sleeping peacefully on a cozy bed with a soft white pillow and a blue blanket, with a small window on the right showing a crescent moon and twinkling stars. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/tinro.webp",
+    "soundFile": "/audio/kosakata/tinro.mp3"
+  },
+  {
+    "id": "alampa",
+    "category": "Kegiatan Harian",
+    "lontaraScript": "ᨕᨒᨅ",
+    "makassarWord": "A'lampa",
+    "indonesianMeaning": "Berjalan / Pergi",
+    "exampleSentence": {
+      "makassar": "A'lampa ma' ri sikolaya.",
+      "indonesian": "Saya pergi ke sekolah dulu."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A young boy and girl wearing school backpacks walking cheerfully side by side along a stone path with green bushes in the morning sun. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/alampa.webp",
+    "soundFile": "/audio/kosakata/alampa.mp3"
+  },
+  {
+    "id": "rannu",
+    "category": "Emosi & Perasaan",
+    "lontaraScript": "ᨑᨊᨘ",
+    "makassarWord": "Rannu",
+    "indonesianMeaning": "Gembira / Senang",
+    "exampleSentence": {
+      "makassar": "Rannu nyawaku ancinikko.",
+      "indonesian": "Senang hatiku melihatmu."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). An overjoyed young girl jumping happily in the air with a big smile and both hands raised, surrounded by colorful balloons and small flowers. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/rannu.webp",
+    "soundFile": "/audio/kosakata/rannu.mp3"
+  },
+  {
+    "id": "laro",
+    "category": "Emosi & Perasaan",
+    "lontaraScript": "ᨒᨑᨚ",
+    "makassarWord": "Laro",
+    "indonesianMeaning": "Marah",
+    "exampleSentence": {
+      "makassar": "Teako laro-laroi.",
+      "indonesian": "Jangan suka marah-marah."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A grumpy young boy crossing his arms tightly over his chest with puffed cheeks and furrowed eyebrows, standing next to a broken toy car on the floor. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/laro.webp",
+    "soundFile": "/audio/kosakata/laro.mp3"
+  },
+  {
+    "id": "balla",
+    "category": "Benda & Tempat",
+    "lontaraScript": "ᨅᨒ",
+    "makassarWord": "Balla'",
+    "indonesianMeaning": "Rumah",
+    "exampleSentence": {
+      "makassar": "Ammantanga' ri balla'.",
+      "indonesian": "Saya tinggal di rumah."
+    },
+    "imagePrompt": "Cute 3D Pixar-style miniature illustration on a solid warm cream background (#FDFBF7). A charming traditional Makassarese wooden stilt house (Balla') with a pitched roof, wooden front stairs, green potted plants, and warm glowing windows. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/balla.webp",
+    "soundFile": "/audio/kosakata/balla.mp3"
+  },
+  {
+    "id": "jene",
+    "category": "Benda & Alam",
+    "lontaraScript": "ᨍᨙᨊᨙ",
+    "makassarWord": "Je'ne'",
+    "indonesianMeaning": "Air",
+    "exampleSentence": {
+      "makassar": "Je'ne' kassi ri Mangkasara'.",
+      "indonesian": "Air bersih untuk mandi dan minum."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A shiny silver water tap pouring crystal clear splashing water into a bright blue bucket with sparkling water droplets. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/jene.webp",
+    "soundFile": "/audio/kosakata/jene.mp3"
+  },
+  {
+    "id": "lompo",
+    "category": "Ukuran & Sifat",
+    "lontaraScript": "ᨒᨚᨄᨚ",
+    "makassarWord": "Lompo",
+    "indonesianMeaning": "Besar",
+    "exampleSentence": {
+      "makassar": "Balla' lompo.",
+      "indonesian": "Rumah yang besar."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A grand, large traditional Makassarese Phinisi wooden ship with big sails next to a tiny paper boat on gentle blue water waves to illustrate the concept of 'Big'. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/lompo.webp",
+    "soundFile": "/audio/kosakata/lompo.mp3"
+  },
+  {
+    "id": "cadi",
+    "category": "Ukuran & Sifat",
+    "lontaraScript": "ᨌᨉᨗ",
+    "makassarWord": "Ca'di",
+    "indonesianMeaning": "Kecil",
+    "exampleSentence": {
+      "makassar": "Ana' jangang ca'di.",
+      "indonesian": "Anak ayam yang kecil."
+    },
+    "imagePrompt": "Cute 3D Pixar-style illustration on a solid warm cream background (#FDFBF7). A gentle young child's open hands carefully holding a tiny, fluffy yellow baby chick to illustrate the concept of 'Small'. Soft studio 3D lighting.",
+    "imageSrc": "/assets/vocabulary/cadi.webp",
+    "soundFile": "/audio/kosakata/cadi.mp3"
+  }
+]
+

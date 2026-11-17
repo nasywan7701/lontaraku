@@ -1,0 +1,427 @@
+[
+  {
+    "id": "l1-01",
+    "level": 1,
+    "code": "L1-01",
+    "titleLontara": "ᨕᨔᨒᨆᨘ ᨕᨒᨗᨀᨘ",
+    "titleMakassar": "Assalamu Alaikum",
+    "titleIndonesian": "Semoga keselamatan menyertaimu",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_01.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨔᨒᨆᨘ ᨕᨒᨗᨀᨘ",
+        "makassar": "Assalamu Alaikum",
+        "indonesian": "Semoga keselamatan menyertaimu (Salam pembuka)"
+      }
+    ]
+  },
+  {
+    "id": "l1-02",
+    "level": 1,
+    "code": "L1-02",
+    "titleLontara": "ᨕᨄ ᨀᨅᨑ",
+    "titleMakassar": "Apa kareba?",
+    "titleIndonesian": "Apa kabar?",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_02.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨄ ᨀᨅᨑ",
+        "makassar": "Apa kareba?",
+        "indonesian": "Apa kabar?"
+      }
+    ]
+  },
+  {
+    "id": "l1-03",
+    "level": 1,
+    "code": "L1-03",
+    "titleLontara": "ᨅᨍᨗ ᨅᨍᨗᨍ",
+    "titleMakassar": "Baji'-baji'ji.",
+    "titleIndonesian": "Baik-baik saja.",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_03.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨅᨍᨗ ᨅᨍᨗᨍ",
+        "makassar": "Baji'-baji'ji.",
+        "indonesian": "Baik-baik saja."
+      }
+    ]
+  },
+  {
+    "id": "l1-04",
+    "level": 1,
+    "code": "L1-04",
+    "titleLontara": "ᨕᨗᨊᨀᨙ ᨕᨑᨙᨊᨘ",
+    "titleMakassar": "Inai arennu?",
+    "titleIndonesian": "Siapa namamu?",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_04.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨗᨊᨀᨙ ᨕᨑᨙᨊᨘ",
+        "makassar": "Inai arennu?",
+        "indonesian": "Siapa namamu?"
+      }
+    ]
+  },
+  {
+    "id": "l1-05",
+    "level": 1,
+    "code": "L1-05",
+    "titleLontara": "ᨕᨑᨙᨀᨘ ᨔᨗ ᨅᨌᨚ",
+    "titleMakassar": "Arengku si Baco.",
+    "titleIndonesian": "Namaku si Baco.",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_05.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨑᨙᨀᨘ ᨔᨗ ᨅᨌᨚ",
+        "makassar": "Arengku si Baco.",
+        "indonesian": "Namaku si Baco."
+      }
+    ]
+  },
+  {
+    "id": "l1-06",
+    "level": 1,
+    "code": "L1-06",
+    "titleLontara": "ᨀᨙᨆᨕᨙᨀᨚ ᨕᨒᨅ",
+    "titleMakassar": "Kemaeko a'lampa?",
+    "titleIndonesian": "Kamu mau pergi ke mana?",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_06.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨀᨙᨆᨕᨙᨀᨚ ᨕᨒᨅ",
+        "makassar": "Kemaeko a'lampa?",
+        "indonesian": "Kamu mau pergi ke mana?"
+      }
+    ]
+  },
+  {
+    "id": "l1-07",
+    "level": 1,
+    "code": "L1-07",
+    "titleLontara": "ᨕᨒᨅᨕ ᨑᨗ ᨔᨗᨀᨚᨒᨐ",
+    "titleMakassar": "A'lampa' ri sikolaya.",
+    "titleIndonesian": "Saya pergi ke sekolah.",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_07.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨒᨅᨕ ᨑᨗ ᨔᨗᨀᨚᨒᨐ",
+        "makassar": "A'lampa' ri sikolaya.",
+        "indonesian": "Saya pergi ke sekolah."
+      }
+    ]
+  },
+  {
+    "id": "l1-08",
+    "level": 1,
+    "code": "L1-08",
+    "titleLontara": "ᨈᨑᨗᨆ ᨀᨔᨗ ᨉᨕᨙ",
+    "titleMakassar": "Tarima kasi' Daeng.",
+    "titleIndonesian": "Terima kasih, Kakak/Daeng.",
+    "category": "sapaan",
+    "audioFile": "/audio/bacaan/l1_08.mp3",
+    "stanzas": [
+      {
+        "lontara": "ᨈᨑᨗᨆ ᨀᨔᨗ ᨉᨕᨙ",
+        "makassar": "Tarima kasi' Daeng.",
+        "indonesian": "Terima kasih, Kakak/Daeng."
+      }
+    ]
+  },
+  {
+    "id": "l2-01",
+    "level": 2,
+    "titleLontara": "ᨅᨑᨗᨅᨔ ᨑᨗ ᨅᨒ",
+    "titleMakassar": "Bari'basa' ri Balla'",
+    "titleIndonesian": "Pagi Hari di Rumah",
+    "category": "cerita",
+    "audioFile": "/audio/bacaan/l2_cerita1.mp3",
+    "culturalNote": "Menggambarkan kebiasaan anak berbakti dan rajin di rumah sebelum berangkat ke sekolah.",
+    "stanzas": [
+      {
+        "lontara": "ᨔᨗ ᨅᨌᨚ ᨕᨅᨈᨘ ᨅᨑᨗᨅᨔ ᨉᨘᨉᨘ. ᨕᨈᨘᨑᨘᨊ ᨑᨗ ᨍᨙᨊᨙᨀᨕ ᨕᨍᨙᨊᨙ.",
+        "makassar": "Si Baco ambangung bari'basa' dudu. Antama'mi ri je'nekanga a'je'ne'.",
+        "indonesian": "Si Baco bangun pagi-pagi sekali. Ia masuk ke kamar mandi untuk mandi."
+      },
+      {
+        "lontara": "ᨒᨙᨅᨀᨗ ᨕᨍᨙᨊᨙ, ᨕᨂᨉᨑᨙᨆᨗ ᨔᨗᨅᨓ ᨕᨆᨊ ᨔᨗᨅᨓ ᨕᨅᨄᨊ.",
+        "makassar": "Le'baki a'je'ne', angngandremi siagang amma'na siagang bapa'na.",
+        "indonesian": "Selesai mandi, ia makan bersama ibu dan ayahnya."
+      },
+      {
+        "lontara": "ᨔᨗ ᨅᨌᨚ ᨕᨊ ᨌᨑᨉᨙ, ᨈᨙᨊ ᨊᨀᨘᨈᨘ ᨕᨒᨅ ᨑᨗ ᨔᨗᨀᨚᨒᨐ.",
+        "makassar": "Si Baco ana' caradde', tena nakuttu a'lampa ri sikolaya.",
+        "indonesian": "Si Baco anak yang rajin/pintar, ia tidak malas pergi ke sekolah."
+      }
+    ]
+  },
+  {
+    "id": "l2-02",
+    "level": 2,
+    "titleLontara": "ᨕᨒᨅ ᨑᨗ ᨄᨔᨑᨀ",
+    "titleMakassar": "A'lampa ri Pasaraka",
+    "titleIndonesian": "Pergi ke Pasar",
+    "category": "cerita",
+    "audioFile": "/audio/bacaan/l2_cerita2.mp3",
+    "culturalNote": "Mengenalkan suasana pasar tradisional dan sikap tolong-menolong anak kepada orang tua.",
+    "stanzas": [
+      {
+        "lontara": "ᨅᨑᨗᨅᨔᨕ, ᨔᨗ ᨅᨙᨌᨙ ᨕᨒᨅ ᨑᨗ ᨄᨔᨑᨀ ᨔᨗᨅᨓ ᨕᨆᨊ.",
+        "makassar": "Bari'basaka, si Becce' a'lampa ri pasaraka siagang amma'na.",
+        "indonesian": "Pada pagi hari, si Becce pergi ke pasar bersama ibunya."
+      },
+      {
+        "lontara": "ᨕᨆᨊ ᨕᨅᨒᨗ ᨍᨘᨀᨘ ᨔᨗᨅᨓ ᨁᨂᨊ.",
+        "makassar": "Amma'na ammalli juku' siagang gangang.",
+        "indonesian": "Ibunya membeli ikan dan sayur-mayur."
+      },
+      {
+        "lontara": "ᨔᨗ ᨅᨙᨌᨙ ᨑᨊᨘ ᨉᨘᨉᨘ ᨕᨅᨈᨘᨗ ᨕᨆᨊ ᨕᨙᨑᨂ ᨅᨑ ᨅᨒᨗᨕ.",
+        "makassar": "Si Becce' rannu dudu ambantui amma'na angngerang barang balliang.",
+        "indonesian": "Si Becce sangat senang membantu ibunya membawakan barang belanjaan."
+      }
+    ]
+  },
+  {
+    "id": "l3-01",
+    "level": 3,
+    "titleLontara": "ᨈᨙᨕᨀᨚ ᨀᨘᨈᨘ ᨕᨅᨚᨐ ᨕᨗᨒᨆᨘ",
+    "titleMakassar": "Kelong Menuntut Ilmu (Boya Ilmu)",
+    "titleIndonesian": "Pesan Leluhur untuk Gigih Mencari Ilmu",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi1.mp3",
+    "culturalNote": "Kelong bertema pentingnya bekal ilmu pengetahuan bagi masa depan pemuda Makassar.",
+    "stanzas": [
+      {
+        "lontara": "ᨈᨙᨕᨀᨚ ᨀᨘᨈᨘ ᨕᨅᨚᨐ\nᨕᨗᨒᨆᨘ ᨑᨗ ᨒᨗᨊᨚᨕ\nᨅᨚᨀᨚᨒᨚ ᨑᨗ ᨀᨒᨙᨊᨘ\nᨔᨒᨚ ᨊᨀᨚ ᨌᨑᨉᨙ",
+        "makassar": "Teako kuttu a'boya / Ilmu ri linoa / Bokolo' ri kalennu / Sallo nako caradde'",
+        "indonesian": "Janganlah engkau malas mencari / Ilmu di dunia ini / Sebagai bekal bagi dirimu / Kelak engkau akan menjadi pandai."
+      }
+    ]
+  },
+  {
+    "id": "l3-02",
+    "level": 3,
+    "titleLontara": "ᨑᨙᨔᨚᨄ ᨊᨈᨗᨊᨘᨒᨘ",
+    "titleMakassar": "Kelong Kerja Keras & Ketekunan (Resopa Natemmangingngi)",
+    "titleIndonesian": "Filosofi Kerja Keras & Doa",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi2.mp3",
+    "culturalNote": "Falsafah hidup bahwa tiada hasil yang diraih tanpa keringat dan ketekunan.",
+    "stanzas": [
+      {
+        "lontara": "ᨐ ᨈᨙᨊ ᨊᨔᨑᨙ ᨅᨍᨗ\nᨄᨘᨊ ᨈᨙᨊ ᨊᨑᨙᨔᨚ\nᨔᨚᨂᨚ ᨈᨗᨈᨗᨊ ᨑᨗ ᨒᨗᨊᨚ\nᨑᨙᨔᨚᨄ ᨊᨈᨗᨊᨘᨒᨘ",
+        "makassar": "Ia tena nasare baji' / Punna tena nareso / Songgo' titina ri lino / Resopa natinulu",
+        "indonesian": "Tiada keberuntungan yang datang begitu saja / Jika seseorang tidak bekerja keras / Keringat yang menetes di dunia / Hanya dengan kerja keras dan ketekunanlah cita-cita tercapai."
+      }
+    ]
+  },
+  {
+    "id": "l3-03",
+    "level": 3,
+    "titleLontara": "ᨔᨗᨑᨗᨀᨘ ᨊ ᨄᨌᨙᨀᨘ",
+    "titleMakassar": "Puisi Siri' na Pacce",
+    "titleIndonesian": "Harga Diri & Solidaritas Kemanusiaan",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi3.mp3",
+    "culturalNote": "Pilar moral tertinggi masyarakat Makassar: Siri' (harga diri) dan Pacce (empati/kepedulian).",
+    "stanzas": [
+      {
+        "lontara": "ᨔᨗᨑᨗᨀᨘ ᨊ ᨄᨌᨙᨀᨘ\nᨕᨊᨍᨑᨗ ᨅᨙᨈᨙ ᨑᨗ ᨕᨈᨗ\nᨒᨅᨘᨔᨘ ᨑᨗ ᨀᨊ ᨀᨊ\nᨍᨑᨙ ᨑᨗ ᨄᨁᨕᨘᨀ",
+        "makassar": "Siri'ku na pacceku / A'jari benteng ri ati / Lambusu' ri kana-kana / Jare' ri panggaukang",
+        "indonesian": "Rasa malu (harga diri) dan kepedulianku / Menjadi benteng di dalam hati / Lurus dan jujur dalam bertutur kata / Teguh dan dapat dipercaya dalam perbuatan."
+      }
+    ]
+  },
+  {
+    "id": "l3-04",
+    "level": 3,
+    "titleLontara": "ᨀᨆᨔᨙᨕ ᨕᨆ",
+    "titleMakassar": "Kamaseang Amma'",
+    "titleIndonesian": "Kasih Sayang Ibu",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi4.mp3",
+    "culturalNote": "Ungkapan rasa syukur dan baktinya seorang anak kepada ibunda tercinta.",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨚ ᨕᨆ ᨀᨆᨔᨙᨕᨀᨘ\nᨒᨚᨄᨚ ᨉᨘᨉᨘ ᨄᨂᨆᨔᨙᨊᨘ\nᨅᨈᨘ ᨑᨗ ᨌᨉᨗᨀᨘ\nᨔᨒᨚ ᨊᨀᨘ ᨒᨚᨄᨚ ᨀᨆ",
+        "makassar": "O Amma' kamaseangku / Lompo dudu pangngamaseangnu / Battu ri ca'diku / Sallo naku lompo kamma",
+        "indonesian": "Wahai Ibu kesayanganku / Begitu besar kasih sayangmu / Sejak aku masih kecil / Hingga aku tumbuh besar seperti sekarang."
+      }
+    ]
+  },
+  {
+    "id": "l3-05",
+    "level": 3,
+    "titleLontara": "ᨈᨘᨊ ᨑᨗ ᨀᨒᨙ",
+    "titleMakassar": "Tuna ri Kale",
+    "titleIndonesian": "Kerendahan Hati",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi5.mp3",
+    "culturalNote": "Kelong yang mengingatkan manusia agar tidak menyombongkan diri dalam hidup.",
+    "stanzas": [
+      {
+        "lontara": "ᨆᨊᨘ ᨈᨗᨂᨗ ᨑᨗ ᨕᨓᨂ\nᨈᨘᨑᨘ ᨈᨚᨍᨗ ᨑᨗ ᨅᨘᨈᨐ\nᨈᨙᨕᨀᨚ ᨈᨀᨅᨚᨑᨚ\nᨒᨗᨊᨚᨕ ᨄᨆᨑᨗ ᨆᨑᨗᨍᨗ",
+        "makassar": "Manu' tinggi ri awanga / Turung tonji ri buttaya / Teako takabboro' / Linoa pammari-mariji",
+        "indonesian": "Burung yang terbang tinggi di angkasa / Pasti akan turun juga ke tanah / Janganlah engkau menyombongkan diri / Dunia ini hanyalah tempat persinggahan sementara."
+      }
+    ]
+  },
+  {
+    "id": "l3-06",
+    "level": 3,
+    "titleLontara": "ᨔᨚᨅᨒᨑᨗ ᨄᨗᨊᨗᨔᨗᨀᨘ",
+    "titleMakassar": "Sombalangi Phinisiku",
+    "titleIndonesian": "Pelaut Tangguh & Rindu Tanah Makassar",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi6.mp3",
+    "culturalNote": "Jiwa bahari para pelaut perahu Phinisi yang mengarungi samudra tanpa lupa tanah air.",
+    "stanzas": [
+      {
+        "lontara": "ᨔᨚᨅᨒᨑᨗ ᨄᨗᨊᨗᨔᨗᨀᨘ\nᨕᨒᨙᨈᨙ ᨅᨚᨅ ᨒᨚᨄᨚ\nᨆᨊ ᨆᨆᨚ ᨀᨘᨅᨙᨒ ᨉᨘᨉᨘ\nᨅᨘᨈ ᨆᨀᨔᨑ ᨈᨙᨊ ᨀᨘᨀᨒᨘᨄᨕᨗ",
+        "makassar": "Sombalangi Phinisiku / A'lete bombang lompo / Manna mamo kubela dudu / Butta Mangkasara' tena kukaluppai",
+        "indonesian": "Berlayarlah perahu Phinisiku / Meniti ombak yang besar / Walaupun aku berada sangat jauh di rantau / Tanah Makassar tidak akan pernah kulupakan."
+      }
+    ]
+  },
+  {
+    "id": "l3-07",
+    "level": 3,
+    "titleLontara": "ᨔᨗᨄᨀᨈᨕᨘ ᨔᨗᨄᨀᨒᨅᨗ",
+    "titleMakassar": "Sipakatau Sipakalabbi'",
+    "titleIndonesian": "Persaudaraan & Saling Memuliakan",
+    "category": "puisi",
+    "audioFile": "/audio/bacaan/l3_puisi7.mp3",
+    "culturalNote": "Prinsip dasar tata krama: saling memanusiakan (sipakatau) dan saling memuliakan (sipakalabbi).",
+    "stanzas": [
+      {
+        "lontara": "ᨔᨗᨄᨀᨈᨕᨘ ᨑᨗ ᨒᨗᨊᨚ\nᨔᨗᨄᨀᨒᨅᨗ ᨔᨗᨅᨓ ᨔᨑᨗᨅᨈᨂ\nᨈᨙᨕᨀᨚ ᨔᨗᨅᨚᨐ ᨔᨒ\nᨅᨍᨗᨀᨂ ᨑᨗ ᨄᨑᨙ ᨊᨗᨈᨘᨍᨘ",
+        "makassar": "Sipakatau ri lino / Sipakalabbi' siagang sari'battang / Teako siboya sala / Bajikanga ri pare' nituju",
+        "indonesian": "Saling memanusiakanlah di dunia / Saling memuliakan bersama saudara / Jangan saling mencari kesalahan / Kebaikan bersama yang kita jadikan tujuan."
+      }
+    ]
+  },
+  {
+    "id": "l4-angngaru",
+    "level": 4,
+    "titleLontara": "ᨕᨂᨑᨘ (ᨔᨘᨄ ᨔᨙᨈᨗᨕ)",
+    "titleMakassar": "Naskah Lengkap: ANGNGARU",
+    "titleIndonesian": "Ikrar Sumpah Setia Prajurit Gowa-Makassar kepada Sang Raja",
+    "category": "angngaru",
+    "audioFile": "/audio/bacaan/l4_angngaru.mp3",
+    "culturalNote": "Naskah sakral deklamasi keprajuritan yang diikrarkan dengan penuh ketegasan di hadapan Raja Gowa sambil menghunus badik.",
+    "stanzas": [
+      {
+        "lontara": "ᨈᨅᨙ ᨀᨑᨕᨙᨀᨘ...\nᨈᨘ ᨆᨅᨘᨈ ᨆᨀᨔᨑ\nᨈᨘ ᨊᨗᨔᨚᨅᨐ ᨑᨗ ᨁᨚᨓ",
+        "makassar": "Tabe' Karaengku...\nTu ma'butta Mangkasara'\nTu nisombaya ri Gowa",
+        "indonesian": "Ampun beribu ampun wahai Rajaku...\nPenguasa tanah Makassar\nYang dipertuan dan dijunjung tinggi di Gowa (Bait 1: Penghormatan)"
+      },
+      {
+        "lontara": "ᨕᨗᨊᨀᨙ ᨆᨗᨊᨙ ᨕᨈ\nᨀᨗᨈ ᨆᨗᨊᨙ ᨀᨑᨕᨙ\nᨄᨘᨊ ᨔᨒᨚ ᨊᨗᨕ ᨄᨘᨑᨗᨊ ᨕᨂᨗ\nᨕᨗᨊᨀᨙ ᨑᨗᨚᨒᨚ ᨕᨈᨅ ᨑᨗ ᨅᨚᨀᨚ",
+        "makassar": "Inakke minne ata\nKatte minne Karaeng\nPunna sallo nia' purina anging\nInakke riolo attaba ri boko",
+        "indonesian": "Akulah ini hamba sahaya\nEngkaulah ini Sang Raja\nJika kelak datang badai ancaman menghadang\nAkulah yang berdiri paling depan menjadi perisai sebelum mengenaimu (Bait 2: Ikrar Kesetiaan)"
+      },
+      {
+        "lontara": "ᨅᨍᨗ ᨆᨒᨚᨒᨚ ᨌᨙᨑᨕᨀᨘ\nᨊ ᨈᨙᨊ ᨀᨘ ᨕᨒᨙᨔᨙ ᨑᨗ ᨄᨔᨗᨍᨍᨗᨀ!",
+        "makassar": "Baji' malolo cera'ku\nNa tena ku allese ri pasijanjikang!",
+        "indonesian": "Lebih baik mengalir merah darahku\nDaripada aku mundur selangkah dari janji kesetiaan! (Bait 3: Sumpah Darah)"
+      }
+    ]
+  },
+  {
+    "id": "l4-pakarena",
+    "level": 4,
+    "titleLontara": "ᨄᨀᨑᨙᨊ",
+    "titleMakassar": "Pakarena",
+    "titleIndonesian": "Lagu Tari Tradisional yang Mulia & Lembut",
+    "category": "lagu",
+    "audioFile": "/audio/bacaan/l4_pakarena.mp3",
+    "culturalNote": "Lagu pengiring tari Pakarena yang menggambarkan kelembutan dan keluhuran budi pekerti wanita Makassar.",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨗᨀᨈᨙ ᨑᨗ ᨈᨘᨑᨈᨙᨕ ᨅᨕᨘ, ᨕᨉᨈ ᨆᨑᨗᨚᨒᨚᨕ, ᨔᨐᨘ ᨕᨙ... ᨄᨀᨑᨙᨊ ᨒᨅᨗᨑᨗᨊ ᨅᨕᨘ, ᨐ ᨉᨙᨉᨙ ᨉᨙᨉᨙ...",
+        "makassar": "Ikatte ri Turatea bau, adatta marioloa, sayang e... Pakarena la'birina bau, ya dende dende...",
+        "indonesian": "Kita masyarakat di Makassar, adat kita sejak dahulu kala... Tari Pakarena yang mulia dan lembut..."
+      },
+      {
+        "lontara": "ᨆᨅᨍᨗ ᨀᨊ ᨑᨗ ᨄᨀᨑᨆᨘᨒ, ᨅᨍᨗ ᨀᨊ ᨑᨗ ᨄᨀᨈᨘᨈᨘ",
+        "makassar": "Ma'baji' kana ri pakaramula, baji' kana ri pakatuttu'",
+        "indonesian": "Bertutur kata yang baik sejak awal hingga akhir."
+      }
+    ]
+  },
+  {
+    "id": "l4-angin-mammiri",
+    "level": 4,
+    "titleLontara": "ᨕᨂᨗ ᨆᨆᨗᨑᨗ",
+    "titleMakassar": "Angin Mammiri",
+    "titleIndonesian": "Semilir Angin Penyampai Pesan Rindu",
+    "category": "lagu",
+    "audioFile": "/audio/bacaan/l4_angin_mammiri.mp3",
+    "culturalNote": "Lagu daerah paling legendaris dari Makassar yang menitipkan salam rindu lewat hembusan angin sepoi-sepoi.",
+    "stanzas": [
+      {
+        "lontara": "ᨕᨂᨗ ᨆᨆᨗᨑᨗ ᨀᨘᨄᨔᨘ... ᨄᨗᨈᨘᨍᨘᨗ ᨈᨚᨈᨚᨂᨊ...",
+        "makassar": "Anging mammiri kupasang... Pitujui tontonganna...",
+        "indonesian": "Wahai angin semilir kutitipkan pesan... Hembuskanlah melalui jendelanya..."
+      },
+      {
+        "lontara": "ᨈᨘᨔᨑᨚᨕ ᨈᨀᨒᨘᨄ, ᨅᨈᨂ ᨈᨀᨒᨘᨄ... ᨕᨙ ᨕᨕᨘᨒᨙ... ᨊᨆᨂᨘᨑᨙᨊᨗ ᨈᨘᨈᨘ ᨆᨈᨊ...",
+        "makassar": "Tusarroa takkaluppa, batangnga takkaluppa... E aule... Namangngu'rangi tutu matanna...",
+        "indonesian": "Kepada seseorang yang mulai pelupa... Agar ia kembali teringat saat memejamkan mata."
+      }
+    ]
+  },
+  {
+    "id": "l4-anak-kukang",
+    "level": 4,
+    "titleLontara": "ᨕᨊ ᨀᨘᨀ",
+    "titleMakassar": "Anak Kukang",
+    "titleIndonesian": "Ratapan Anak Yatim Piatu",
+    "category": "lagu",
+    "audioFile": "/audio/bacaan/l4_anak_kukang.mp3",
+    "culturalNote": "Lagu yang sarat nuansa melankolis tentang ketabahan seorang anak yatim piatu yang berjuang sendiri.",
+    "stanzas": [
+      {
+        "lontara": "ᨀᨘᨀᨂ ᨈᨘᨊᨗᨀᨆᨔᨙ... ᨕᨊ ᨀᨘᨀᨂ ᨀᨚᨉᨚᨂ...",
+        "makassar": "Kukang tunikamase... Ana' kukang kodong...",
+        "indonesian": "Anak yatim piatu yang dikasihani... Duhai anak yang malang..."
+      },
+      {
+        "lontara": "ᨈᨙᨊ ᨕᨆᨊ, ᨈᨙᨊ ᨅᨄᨊ, ᨕᨔᨑᨙ ᨑᨗ ᨀᨒᨙ ᨀᨒᨙ...",
+        "makassar": "Tena amma'na, tena bapa'na, assare ri kale-kale...",
+        "indonesian": "Tiada lagi ibunya, tiada lagi ayahnya, menjalani hidup seorang diri..."
+      }
+    ]
+  },
+  {
+    "id": "l4-marencong-rencong",
+    "level": 4,
+    "titleLontara": "ᨆᨑᨙᨌᨚ ᨑᨙᨌᨚ",
+    "titleMakassar": "Ma'rencong-rencong",
+    "titleIndonesian": "Nyanyian Riang Kepulangan Perantau",
+    "category": "lagu",
+    "audioFile": "/audio/bacaan/l4_marencong_rencong.mp3",
+    "culturalNote": "Lagu berirama gembira menyambut kepulangan perantau bahari Makassar dengan membawa hasil yang melimpah.",
+    "stanzas": [
+      {
+        "lontara": "ᨅᨈᨘ ᨑᨈᨘᨆᨕ ᨑᨗ ᨅᨘᨈ ᨍᨓ... ᨆᨑᨙᨌᨚ ᨑᨙᨌᨚ...",
+        "makassar": "Battu ratuma' ri butta Jawa... Ma'rencong-rencong...",
+        "indonesian": "Aku baru saja kembali berlayar dari tanah seberang... Dengan hati riang gembira..."
+      },
+      {
+        "lontara": "ᨕᨅᨚᨐ ᨅᨑ ᨑᨗ ᨅᨘᨈ ᨆᨀᨔᨑ...",
+        "makassar": "A'boya barang ri butta Mangkasara'...",
+        "indonesian": "Membawa hasil usaha kembali ke tanah Makassar..."
+      }
+    ]
+  }
+]
+

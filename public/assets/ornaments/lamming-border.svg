@@ -1,0 +1,43 @@
+<svg width="1200" height="40" viewBox="0 0 1200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8860B" />
+      <stop offset="25%" stop-color="#FFD700" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="75%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7A0012" />
+      <stop offset="50%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#7A0012" />
+    </linearGradient>
+    <pattern id="lammingPattern" width="60" height="40" patternUnits="userSpaceOnUse">
+      <!-- Garis Dasar Emas Atas & Bawah -->
+      <line x1="0" y1="4" x2="60" y2="4" stroke="url(#goldGrad)" stroke-width="2" />
+      <line x1="0" y1="36" x2="60" y2="36" stroke="url(#goldGrad)" stroke-width="2" />
+      
+      <!-- Pita Merah Tengah -->
+      <line x1="0" y1="20" x2="60" y2="20" stroke="url(#redGrad)" stroke-width="1.5" stroke-dasharray="4 2" />
+
+      <!-- Ornamen Pucuk Rebung / Geometris Berlian Lamming -->
+      <polygon points="30,8 42,20 30,32 18,20" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" />
+      <polygon points="30,12 38,20 30,28 22,20" fill="url(#redGrad)" opacity="0.85" />
+      <circle cx="30" cy="20" r="2.5" fill="url(#goldGrad)" />
+
+      <!-- Ornamen Sudut -->
+      <polygon points="0,14 6,20 0,26" fill="url(#goldGrad)" />
+      <polygon points="60,14 54,20 60,26" fill="url(#goldGrad)" />
+      
+      <!-- Titik Mutiara Bulaeng -->
+      <circle cx="10" cy="10" r="1.5" fill="#FFD700" />
+      <circle cx="50" cy="10" r="1.5" fill="#FFD700" />
+      <circle cx="10" cy="30" r="1.5" fill="#FFD700" />
+      <circle cx="50" cy="30" r="1.5" fill="#FFD700" />
+    </pattern>
+  </defs>
+
+  <!-- Latar Transparan dengan Pattern Lamming Berulang Sepanjang 1200px -->
+  <rect width="1200" height="40" fill="url(#lammingPattern)" />
+</svg>
+

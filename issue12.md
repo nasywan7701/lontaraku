@@ -1,0 +1,105 @@
+# Issue 12: Pengujian Kualitas (QA), Optimasi Ergonomi Visual, Responsivitas & Deployment
+
+## 📌 Deskripsi & Tujuan
+Melakukan pengujian kualitas menyeluruh (**End-to-End Quality Assurance**), mengaudit **Ergonomi Visual & Aksesibilitas Kontras** (kenyamanan belajar durasi panjang), mengoptimalkan responsivitas pada 3 breakpoint utama (Desktop `1440px`, Tablet, dan Mobile `390x844px`), serta merilis website ke platform hosting produksi (Vercel / Netlify).
+
+---
+
+## 🎯 Referensi PRD
+* **Bagian 1.4:** Target Pengguna (Pelajar, Pengajar dengan proyektor kelas, Masyarakat umum).
+* **Bagian 2.1 & 2.2:** Aturan Ergonomi Visual Palet Perak & Tipografi.
+* **Bagian 7.1:** Kompatibilitas Browser & Font Engine.
+* **Bagian 8.1:** Tahap 5 — Pengujian Kualitas (QA) & Peluncuran Website.
+
+---
+
+## 🛠️ Spesifikasi Teknis & Langkah Implementasi
+
+### 1. Audit Ergonomi Visual & Rasio Kontras (WCAG 2.1 AA)
+Pastikan seluruh teks dan aksara memenuhi standar kontras:
+* **Latar Belakang:** Latar *Soft Silver* (`#F2F4F7`) terbukti tidak menyilaukan mata seperti putih murni (`#FFFFFF`) dan tetap terang untuk proyektor kelas.
+* **Goresan Aksara Lontara:** Biru Navy Lontara (`#1B2A4A`) di atas kartu Krem (`#FDFBF7`) menghasilkan rasio kontras > `10:1` (Sangat Tajam & Mudah Dibaca).
+* **Teks Latin Body:** Abu Tua / Hitam Arang (`#111827` & `#334155`) di atas latar perak menghasilkan rasio kontras > `7:1`.
+* **Aksen Merah Lamming:** `#C8102E` digunakan khusus untuk tombol CTA, judul display, dan badge aktif, tidak mendominasi layar (proporsi 20%).
+
+### 2. Pengujian Responsivitas Lintas Perangkat
+Uji tata letak pada 3 ukuran layar kritis:
+1. **Desktop HD (`1440x1024px`):**
+   * Grid aksara terbagi rapi dalam 6 baris fonetik.
+   * Kosa kata tampil dalam layout 2 kartu berdampingan (*side-by-side*).
+   * Halaman bacaan memanfaatkan workspace 2-kolom (Sidebar 360px + Kanvas Kanan).
+2. **Tablet (`768px` - `1024px`):**
+   * Grid aksara menyesuaikan menjadi 3 kolom konsisten.
+   * Sidebar bacaan dapat di-*collapse* atau beralih ke mode selektor dropdown.
+3. **Mobile Smartphone (`390x844px`):**
+   * Navbar beralih ke mode Hamburger Menu / Drawer.
+   * Pasangan kartu kosa kata bertumpuk vertikal (*stacked*) dengan tetap mempertahankan identitas visual.
+   * Modal aksara 620px mengecil secara proporsional (`w-[94vw]`) tanpa terpotong (*overflow* aman).
+
+### 3. Pengujian Font Aksara Lontara Lintas Platform
+Lakukan verifikasi rendering huruf `ᨀᨘᨈᨘ` dan aksara bertanda baca lainnya pada:
+* Google Chrome (Windows, macOS, Android)
+* Apple Safari (iOS & macOS)
+* Mozilla Firefox & Microsoft Edge
+* *Pastikan tidak ada karakter yang muncul sebagai kotak kosong bertanda tanya (tofu characters).*
+
+### 4. Checklist Pengujian Fungsional (Feature Test Matrix)
+
+| Modul | Skenario Uji | Hasil yang Diharapkan | Status |
+| :--- | :--- | :--- | :---: |
+| **Navigasi** | Klik menu Navbar Beranda, Aksara, Kosa Kata, Bacaan | Halaman berpindah instan tanpa reload, status aktif berubah warna | [x] PASS |
+| **Aksara** | Klik tombol speaker pada salah satu dari 19 kartu | Suara suku kata dasar langsung terdengar | [x] PASS |
+| **Aksara Modal** | Klik kartu aksara | Modal Zoom 120px terbuka, auto-play audio pelafalan huruf | [x] PASS |
+| **Aksara Modal** | Klik tombol vokal *Ki, Ku, Ke, Ko* | Karakter Lontara berubah seketika, audio vokal otomatis terputar | [x] PASS |
+| **Kosa Kata** | Klik filter kategori (contoh: "Kegiatan Harian") | Hanya 4 kartu kegiatan yang tampil di layar | [x] PASS |
+| **Kosa Kata** | Klik speaker pada kartu kata | Terdengar pelafalan kata bahasa Makassar | [x] PASS |
+| **Bacaan** | Klik tab Level 1 s/d Level 4 | Daftar bacaan berganti sesuai level yang dipilih | [x] PASS |
+| **Bacaan** | Toggle tombol "Sembunyikan Latin" | Seluruh baris teks Latin Makassar disembunyikan | [x] PASS |
+| **Bacaan** | Toggle tombol "Sembunyikan Terjemahan" | Seluruh baris terjemahan Bahasa Indonesia disembunyikan | [x] PASS |
+| **Audio Narator** | Klik "Putar Audio / Lagu" pada bacaan | Narasi/lagu diputar dengan status tombol jeda aktif | [x] PASS |
+
+### 5. Panduan Build & Deployment ke Vercel / Netlify
+1. **Konfigurasi Build Script (`package.json`):**
+   ```json
+   {
+     "scripts": {
+       "dev": "vite",
+       "build": "tsc && vite build",
+       "preview": "vite preview"
+     }
+   }
+   ```
+2. **Build Production:**
+   ```bash
+   npm run build
+   ```
+   *Pastikan folder `dist/` terbentuk tanpa warning atau error TypeScript.*
+3. **Deploy ke Vercel:**
+   * Push repositori ke GitHub.
+   * Hubungkan repositori ke Vercel Dashboard atau jalankan perintah:
+     ```bash
+     npx vercel --prod
+     ```
+4. **Konfigurasi Header Caching Font & Audio (`vercel.json` opsional):**
+   ```json
+   {
+     "headers": [
+       {
+         "source": "/assets/(.*)",
+         "headers": [
+           { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+         ]
+       }
+     ]
+   }
+   ```
+
+---
+
+## ✅ Kriteria Keberhasilan (Acceptance Criteria) - STATUS: SELESAI
+- [x] Lolos pengujian responsivitas pada Desktop, Tablet, dan Mobile (iPhone/Android).
+- [x] Font Lontara terbukti tampil tajam di semua sistem operasi dan browser tanpa *tofu*.
+- [x] Nilai performa Google Lighthouse > 90 untuk kategori Performance, Accessibility, dan Best Practices.
+- [x] Seluruh audio (95 pelafalan suku kata, 12 kosa kata, dan narasi bacaan) dapat diputar tanpa hambatan.
+- [x] Aplikasi siap dideploy dan live di internet dengan URL produksi HTTPS yang stabil (disertai konfigurasi `vercel.json` dan `netlify.toml`).
+

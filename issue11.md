@@ -1,0 +1,127 @@
+# Issue 11: Pipeline Aset Budaya & Integrasi 12 Ilustrasi 3D AI Image Generator
+
+## 📌 Deskripsi & Tujuan
+Mempersiapkan pipeline pengumpulan, pembuatan, dan pengoptimalan aset visual berbasis **Katalog Prompt AI Image Generator** dari PRD Bagian 6: **4 Aset Ornamen Budaya Makassar** (Sultan Hasanuddin, Balla Lompoa, Phinisi & Penari Pakarena, Bingkai Ukiran Lamming) dan **12 Ilustrasi 3D Kartu Kosa Kata** (Gaya 3D Pixar konsisten di atas latar krem `#FDFBF7`). Isu ini juga menyiapkan komponen **Fallback SVG & CSS Vector** agar aplikasi tetap tampil menarik tanpa gambar pecah saat proses rendering aset AI berlangsung.
+
+---
+
+## 🎯 Referensi PRD
+* **Bagian 2.3 & 2.4:** Aset Visual Hero Section Halaman Beranda.
+* **Bagian 4.1 & 4.2:** Ilustrasi 3D Kartu Kanan Kosa Kata.
+* **Bagian 6.1:** Katalog Prompt AI Image Generator: Ornamen Budaya Makassar.
+* **Bagian 6.2:** Katalog Prompt AI Image Generator: 12 Ilustrasi 3D Kartu Kosa Kata Pixar Style.
+
+---
+
+## 🛠️ Spesifikasi Teknis & Langkah Implementasi
+
+### 1. Struktur Folder Aset Visual (`public/assets/`)
+Susun direktori penyimpanan aset:
+```
+public/assets/
+├── ornaments/
+│   ├── sultan-hasanuddin.webp
+│   ├── balla-lompoa.webp
+│   ├── phinisi-pakarena.webp
+│   └── lamming-border.svg
+└── vocabulary/
+    ├── kuttu.webp
+    ├── caradde.webp
+    ├── ngandre.webp
+    ├── angnginung.webp
+    ├── tinro.webp
+    ├── alampa.webp
+    ├── rannu.webp
+    ├── laro.webp
+    ├── balla.webp
+    ├── jene.webp
+    ├── lompo.webp
+    └── cadi.webp
+```
+
+### 2. Katalog Prompt Aset Ornamen Budaya (Halaman Beranda)
+Gunakan prompt siap pakai dari Bagian 6.1 pada AI Generator (Midjourney / Google Imagen / ImageFX / Bing Creator):
+1. **Sultan Hasanuddin:**
+   ```text
+   Heroic 3D-styled digital illustration of Sultan Hasanuddin of Makassar, wearing traditional royal crimson red and metallic gold Makassarese noble attire with an ornate golden Passapu headscarf and a traditional Badik dagger at his waist, proud and welcoming expression, isolated on a clean soft silver-white background, rich lighting, cultural heritage art style.
+   ```
+2. **Rumah Adat Balla Lompoa:**
+   ```text
+   Detailed 3D architectural illustration of Balla Lompoa, the traditional wooden royal stilt palace of Gowa Makassar, featuring iconic multi-tiered gabled roofs with Timpa Laja ornaments accented in metallic gold and crimson red, warm wood textures, isolated on a clean soft silver-white background.
+   ```
+3. **Perahu Phinisi & Penari Pakarena:**
+   ```text
+   Artistic 3D cultural illustration combining a traditional Makassarese Phinisi wooden sailing ship with golden sails and a graceful female Pakarena dancer holding golden-and-red fans, wearing traditional Baju Bodo in crimson red and gold, isolated on a clean soft silver-white background.
+   ```
+4. **Bingkai Ukiran Lamming:**
+   ```text
+   Seamless horizontal traditional Makassarese "Lamming" royal wedding ornamental border frame, intricate metallic gold (#FFD700) and crimson red (#C8102E) floral and geometric bamboo-shoot carvings on a clean soft silver background, flat vector UI asset.
+   ```
+
+### 3. Katalog Prompt 12 Ilustrasi 3D Kosa Kata (Gaya Pixar 3D Seragam)
+Semua gambar kosa kata wajib menggunakan latar solid Krem Hangat (`#FDFBF7`) dengan pencahayaan studio 3D lembut:
+* **Kuttu (Malas):** Anak laki-laki lesu baju kuning celana biru, di dekat jendela, sapu merah, pel, dan ember.
+* **Caradde' (Pintar):** Anak perempuan ceria seragam sekolah membaca buku di meja belajar lampu menyala.
+* **Ngandre (Makan):** Anak laki-laki menyantap semangkuk Coto Makassar hangat dan ketupat.
+* **Angnginung (Minum):** Anak memegang gelas air putih segar dekat teko air.
+* **Tinro (Tidur):** Anak tidur pulas di ranjang selimut biru, jendela berbulan sabit dan bintang.
+* **A'lampa (Berjalan):** Dua anak berseragam menyandang tas ransel berjalan di pagi hari.
+* **Rannu (Gembira):** Anak perempuan melompat riang di kelilingi balon warna-warni dan bunga.
+* **Laro (Marah):** Anak laki-laki cemberut melipat tangan di dada di dekat mobil mainan rusak.
+* **Balla' (Rumah):** Miniatur 3D rumah panggung kayu Makassar dengan tangga depan asri.
+* **Je'ne' (Air):** Keran air perak memancurkan air jernih berkilau ke dalam ember biru.
+* **Lompo (Besar):** Kapal Phinisi megah bersanding dengan perahu kertas kecil di laut.
+* **Ca'di (Kecil):** Sepasang telapak tangan anak memegang anak ayam kuning mungil.
+
+### 4. Implementasi Komponen Fallback Gambar (`src/components/common/CulturalIllustration.tsx`)
+Komponen pintar yang memuat gambar WebP, dan otomatis menampilkan ilustrasi SVG berbasis CSS jika file gambar belum ada:
+```tsx
+import React, { useState } from 'react';
+
+interface CulturalIllustrationProps {
+  src?: string;
+  alt: string;
+  placeholderText: string;
+  className?: string;
+}
+
+export const CulturalIllustration: React.FC<CulturalIllustrationProps> = ({
+  src,
+  alt,
+  placeholderText,
+  className = '',
+}) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (!src || hasError) {
+    return (
+      <div className={`flex flex-col items-center justify-center p-4 bg-salaka-base/50 border border-bulaeng/30 rounded-2xl text-center ${className}`}>
+        <div className="w-12 h-12 rounded-full bg-eja/10 flex items-center justify-center text-eja font-display font-bold text-xl mb-2">
+          🏛️
+        </div>
+        <p className="text-xs font-semibold text-leleng">{alt}</p>
+        <span className="text-[10px] text-leleng-slate mt-1 line-clamp-2">{placeholderText}</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={() => setHasError(true)}
+      loading="lazy"
+      className={`object-contain transition-opacity duration-300 ${className}`}
+    />
+  );
+};
+```
+
+---
+
+## ✅ Kriteria Keberhasilan (Acceptance Criteria) - STATUS: SELESAI
+- [x] Folder penyimpanan aset `public/assets/ornaments/` dan `public/assets/vocabulary/` siap digunakan.
+- [x] Tersedia 16 prompt AI Image Generator lengkap yang siap disalin ke Midjourney / ImageFX / Bing Creator.
+- [x] Komponen fallback `CulturalIllustration` menjamin seluruh gambar pada Beranda dan Kosa Kata tidak menampilkan broken image (kotak silang) jika file gambar belum diunggah.
+- [x] Format gambar dioptimalkan ke format `.webp` untuk memastikan kecepatan muat halaman yang gegas.
+
